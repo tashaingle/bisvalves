@@ -14,7 +14,7 @@ export default function ProductsPage() {
       <PageHero
         kicker="Catalogue"
         title="The range."
-        lede="Filter by type, industry, pressure and material. Every model is a UK-engineered stainless steel control element — or the start of a bespoke design."
+        lede="Filter by type, industry, pressure and material. Every model is a UK-engineered stainless steel control element, or the start of a bespoke design."
       />
       <section className="bg-charcoal py-16 md:py-24">
         <div className="mx-auto max-w-[1440px] px-5 md:px-10">

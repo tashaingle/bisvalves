@@ -39,7 +39,7 @@ const stages = [
     points: [
       "Strategic stocks of key components and a flexible manufacturing system.",
       "ISO 9001 coordinated sales, order processing and inventory.",
-      "Finish as important as dimension — products are built to be serviced.",
+      "Finish as important as dimension. Products are built to be serviced.",
       "Seal kits and repair kits available for most products.",
     ],
   },
@@ -63,7 +63,8 @@ export default function CapabilitiesPage() {
       <PageHero
         kicker="Capabilities"
         title="Design. Manufacture. Assembly. Testing."
-        lede="A full path from initial concept to a qualified production solution — including exotic materials and fully integrated manifolds."
+        titleClassName="mt-4 font-display text-[clamp(1.35rem,3.6vw,4.5rem)] leading-none font-semibold text-night uppercase whitespace-nowrap"
+        lede="A full path from initial concept to a qualified production solution, including exotic materials and fully integrated manifolds."
         image="/images/manufacture.jpg"
       />
       {stages.map((s, i) => (

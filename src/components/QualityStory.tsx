@@ -8,7 +8,7 @@ export function QualityStory() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            05 — Quality as engineering
+            05 · Quality as engineering
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
             Assurance is not a logo strip.

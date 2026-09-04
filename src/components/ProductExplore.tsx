@@ -10,7 +10,7 @@ export function ProductExplore() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            01 — Product discovery
+            01 · Product discovery
           </p>
           <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-3xl font-display text-5xl leading-[0.95] font-semibold tracking-tight text-night uppercase md:text-7xl">

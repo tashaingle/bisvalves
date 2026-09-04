@@ -13,7 +13,7 @@ export function FinalCTA() {
           others can&apos;t solve?
         </h2>
         <p className="mt-8 max-w-lg text-lg text-night/70">
-          Talk to our engineering team about your requirements — fluid, pressure,
+          Talk to our engineering team about your requirements: fluid, pressure,
           envelope, environment. If the catalogue ends, the drawing board does not.
         </p>
         <Link

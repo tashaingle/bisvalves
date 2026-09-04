@@ -16,7 +16,7 @@ export default function ResourcesPage() {
       <PageHero
         kicker="Technical resources"
         title="Literature, drawings, certificates."
-        lede="The working documents behind the valves — catalogues, leaflets, ISO / ATEX / PED / SIL files, and dimensional datasheets."
+        lede="The working documents behind the valves: catalogues, leaflets, ISO / ATEX / PED / SIL files, and dimensional datasheets."
       />
       <section className="bg-charcoal py-16 md:py-24">
         <div className="mx-auto max-w-[1440px] px-5 md:px-10">

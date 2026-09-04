@@ -16,7 +16,7 @@ export function EnquiryForm({ product }: { product?: string }) {
           .map(([k, v]) => `${k}: ${v}`)
           .join("\n");
         const subject = encodeURIComponent(
-          product ? `Application enquiry — ${product}` : "Talk to an engineer",
+          product ? `Application enquiry: ${product}` : "Talk to an engineer",
         );
         window.location.href = `mailto:${site.email}?subject=${subject}&body=${encodeURIComponent(body)}`;
         setSent(true);

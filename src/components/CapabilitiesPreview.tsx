@@ -36,7 +36,7 @@ export function CapabilitiesPreview() {
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-                04 — Capabilities
+                04 · Capabilities
               </p>
               <h2 className="mt-4 font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-7xl">
                 From concept

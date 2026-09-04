@@ -13,7 +13,7 @@ export function Heritage() {
       <div className="relative mx-auto max-w-[1440px] px-5 md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            03 — Engineering heritage
+            03 · Engineering heritage
           </p>
           <h2 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-7xl">
             50+ years of
@@ -33,7 +33,7 @@ export function Heritage() {
             </p>
             <p className="mt-5 text-night/70">
               Not a catalogue house. A Dorset engineering company that machines,
-              assembles and tests the valves it designs — in stainless, super
+              assembles and tests the valves it designs, in stainless, super
               duplex, Hastelloy and titanium.
             </p>
           </div>

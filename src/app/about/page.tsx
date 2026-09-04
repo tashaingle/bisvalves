@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PageHero
         kicker="About BiS"
         title="A specialist British manufacturer."
-        lede="Originally Bournemouth Industrial Supplies. Today, BiS Valves Ltd — still engineering in Dorset, still solving problems the catalogue cannot."
+        lede="Originally Bournemouth Industrial Supplies. Today, BiS Valves Ltd, still engineering in Dorset, still solving problems the catalogue cannot."
         image="/images/specialist.jpg"
       />
       <Heritage />

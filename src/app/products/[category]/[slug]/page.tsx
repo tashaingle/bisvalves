@@ -115,7 +115,7 @@ export default async function ProductPage({ params }: Props) {
             <ul className="mt-4 space-y-2">
               {product.features.map((f) => (
                 <li key={f} className="font-mono text-sm tracking-wide text-night">
-                  — {f}
+                  {f}
                 </li>
               ))}
             </ul>

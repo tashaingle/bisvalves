@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "manifolds",
   ],
   openGraph: {
-    title: "BiS Valves — Precision under pressure.",
+    title: "BiS Valves: Precision under pressure.",
     description: site.description,
     type: "website",
     locale: "en_GB",

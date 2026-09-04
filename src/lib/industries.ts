@@ -53,7 +53,7 @@ export const industries: Industry[] = [
     kicker: "High pressure. Tight envelopes.",
     summary:
       "Compact, high-pressure control components for downhole tools where space, temperature and reliability collide.",
-    body: "Downhole service demands small-bore valves that hold pressure, survive contamination and remain serviceable. BiS designs around these constraints — from cartridge checks and reliefs to fully custom control elements in exotic alloys.",
+    body: "Downhole service demands small-bore valves that hold pressure, survive contamination and remain serviceable. BiS designs around these constraints, from cartridge checks and reliefs to fully custom control elements in exotic alloys.",
     image: "/images/downhole.jpg",
     applications: [
       "Downhole tools",
@@ -105,7 +105,7 @@ export const industries: Industry[] = [
     name: "High-Pressure Systems",
     kicker: "To 20,000 psi.",
     summary:
-      "Hydraulic and gas systems that live at the edge of conventional valve catalogues — proven in-house to 1,379 bar.",
+      "Hydraulic and gas systems that live at the edge of conventional valve catalogues, proven in-house to 1,379 bar.",
     body: "In-house hydraulic testing to 1,379 bar (20,000 psi), flow and pressure-drop testing, and nitrogen gas testing underpin every high-pressure design. Relief valves, checks and directional valves are available as Category IV safety accessories under the Pressure Equipment Directive.",
     image: "/images/high-pressure.jpg",
     applications: [

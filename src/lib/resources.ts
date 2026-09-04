@@ -103,13 +103,13 @@ export const resources: Resource[] = [
     href: `${cert}/assets/CE-0062-PED-H1-BIS-001-26-GBR.pdf`,
   },
   {
-    title: "CSA SIL 3 — Directional Control Valve",
+    title: "CSA SIL 3: Directional Control Valve",
     type: "Certification",
     category: "Quality",
     href: `${cert}/assets/Uploads/FINAL-FSP-24009-00.pdf`,
   },
   {
-    title: "CSA SIL 3 — ST Solenoid Valve",
+    title: "CSA SIL 3: ST Solenoid Valve",
     type: "Certification",
     category: "Quality",
     href: `${cert}/assets/Uploads/FSP-24010-01.pdf`,

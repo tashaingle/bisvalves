@@ -26,7 +26,7 @@ export function IndustryCarousel() {
     <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-          02 — Applications
+          02 · Applications
         </p>
         <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="max-w-3xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-7xl">
