@@ -30,7 +30,7 @@ const stages = [
 
 export function CapabilitiesPreview() {
   return (
-    <section className="bg-ink py-24 md:py-32">
+    <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <Reveal>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -38,7 +38,7 @@ export function CapabilitiesPreview() {
               <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
                 04 — Capabilities
               </p>
-              <h2 className="mt-4 font-display text-5xl leading-[0.95] font-semibold text-paper uppercase md:text-7xl">
+              <h2 className="mt-4 font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-7xl">
                 From concept
                 <br />
                 to qualified.
@@ -53,20 +53,21 @@ export function CapabilitiesPreview() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {stages.map((s) => (
-            <article key={s.n} className="group relative min-h-[420px] overflow-hidden bg-steel">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={s.image}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover opacity-50 transition duration-700 group-hover:scale-105 group-hover:opacity-70"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-              <div className="relative flex h-full flex-col justify-end p-7">
+            <article key={s.n} className="group overflow-hidden border border-black/10 bg-white">
+              <div className="relative h-48 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.image}
+                  alt=""
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
                 <p className="font-mono text-[11px] tracking-[0.28em] text-brass">{s.n}</p>
-                <h3 className="mt-2 font-display text-4xl text-paper uppercase">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-mist">{s.copy}</p>
+                <h3 className="mt-2 font-display text-3xl text-night uppercase">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-night/70">{s.copy}</p>
               </div>
             </article>
           ))}

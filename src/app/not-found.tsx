@@ -18,7 +18,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/"
-          className="border border-white/20 px-5 py-3 font-mono text-[11px] tracking-[0.2em] uppercase"
+          className="border border-black/15 px-5 py-3 font-mono text-[11px] tracking-[0.2em] text-night uppercase"
         >
           Home
         </Link>

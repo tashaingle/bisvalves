@@ -1,6 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { ProductExplore } from "@/components/ProductExplore";
-import { IndustryPanels } from "@/components/IndustryPanels";
+import { IndustryCarousel } from "@/components/IndustryCarousel";
 import { Heritage } from "@/components/Heritage";
 import { CapabilitiesPreview } from "@/components/CapabilitiesPreview";
 import { QualityStory } from "@/components/QualityStory";
@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Hero />
       <ProductExplore />
-      <IndustryPanels />
+      <IndustryCarousel />
       <Heritage />
       <CapabilitiesPreview />
       <QualityStory />

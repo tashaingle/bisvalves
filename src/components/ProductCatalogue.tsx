@@ -95,7 +95,7 @@ export function ProductCatalogue() {
           </p>
         </div>
       </aside>
-      <div className="grid gap-px bg-white/10 sm:grid-cols-2 xl:grid-cols-3 lg:col-span-9">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 lg:col-span-9">
         {filtered.map((p) => (
           <ProductTile key={`${p.category}-${p.slug}`} product={p} />
         ))}
@@ -140,20 +140,20 @@ function ProductTile({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.category}/${product.slug}`}
-      className="group relative flex min-h-[340px] flex-col overflow-hidden bg-ink p-6"
+      className="group relative flex min-h-[340px] flex-col overflow-hidden border border-black/10 bg-white p-6"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={product.image}
         alt=""
-        className="mx-auto h-40 w-auto object-contain mix-blend-lighten transition duration-500 group-hover:scale-110"
+        className="mx-auto h-40 w-auto object-contain transition duration-500 group-hover:scale-105"
       />
       <p className="mt-4 font-mono text-[10px] tracking-[0.22em] text-brass uppercase">
         {cat?.short} · {product.code}
       </p>
-      <h3 className="mt-2 font-display text-2xl text-paper uppercase">{product.name}</h3>
-      <p className="mt-2 line-clamp-2 text-sm text-mist">{product.summary}</p>
-      <p className="mt-auto pt-4 font-mono text-[11px] tracking-[0.16em] text-paper uppercase">
+      <h3 className="mt-2 font-display text-2xl text-night uppercase">{product.name}</h3>
+      <p className="mt-2 line-clamp-2 text-sm text-night/70">{product.summary}</p>
+      <p className="mt-auto pt-4 font-mono text-[11px] tracking-[0.16em] text-night uppercase">
         {product.pressureLabel}
         <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
       </p>

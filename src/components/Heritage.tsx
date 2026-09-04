@@ -10,7 +10,6 @@ const figures = [
 export function Heritage() {
   return (
     <section className="relative overflow-hidden bg-charcoal py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-40" />
       <div className="relative mx-auto max-w-[1440px] px-5 md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">

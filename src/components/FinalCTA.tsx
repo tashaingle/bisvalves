@@ -2,24 +2,17 @@ import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-ink">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/high-pressure.jpg"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
-      <div className="relative mx-auto max-w-[1440px] px-5 py-28 md:px-10 md:py-36">
+    <section className="border-t border-black/10 bg-charcoal">
+      <div className="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-32">
         <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
           Application engineering
         </p>
-        <h2 className="mt-5 max-w-4xl font-display text-5xl leading-[0.92] font-semibold text-paper uppercase md:text-7xl lg:text-8xl">
+        <h2 className="mt-5 max-w-4xl font-display text-5xl leading-[0.92] font-semibold text-night uppercase md:text-7xl lg:text-8xl">
           Have an application
           <br />
           others can&apos;t solve?
         </h2>
-        <p className="mt-8 max-w-lg text-lg text-mist">
+        <p className="mt-8 max-w-lg text-lg text-night/70">
           Talk to our engineering team about your requirements — fluid, pressure,
           envelope, environment. If the catalogue ends, the drawing board does not.
         </p>

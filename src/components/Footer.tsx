@@ -5,11 +5,11 @@ import { categories } from "@/lib/products";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink">
+    <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:grid-cols-12 md:px-10">
         <div className="md:col-span-4">
-          <Logo inverted />
-          <p className="mt-6 max-w-sm text-sm leading-relaxed text-mist">
+          <Logo />
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-night/70">
             Specialist UK manufacturer of small-bore stainless steel pressure and
             flow control valves for the world&apos;s most demanding environments.
           </p>
@@ -24,13 +24,13 @@ export function Footer() {
           <ul className="mt-4 space-y-2">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-mist hover:text-paper">
+                <Link href={item.href} className="text-sm text-night/70 hover:text-night">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/quality" className="text-sm text-mist hover:text-paper">
+              <Link href="/quality" className="text-sm text-night/70 hover:text-night">
                 Quality
               </Link>
             </li>
@@ -47,7 +47,7 @@ export function Footer() {
                 <li key={c.slug}>
                   <Link
                     href={`/products/${c.slug}`}
-                    className="text-sm text-mist hover:text-paper"
+                    className="text-sm text-night/70 hover:text-night"
                   >
                     {c.short}
                   </Link>
@@ -59,7 +59,7 @@ export function Footer() {
           <p className="font-mono text-[10px] tracking-[0.28em] text-brass uppercase">
             Head office
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-mist">
+          <p className="mt-4 text-sm leading-relaxed text-night/70">
             {site.offices[0].lines.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -68,20 +68,20 @@ export function Footer() {
           </p>
           <a
             href={site.phoneHref}
-            className="mt-4 block font-mono text-sm text-paper hover:text-brass"
+            className="mt-4 block font-mono text-sm text-night hover:text-brass"
           >
             {site.phone}
           </a>
           <a
             href={`mailto:${site.email}`}
-            className="block font-mono text-sm text-paper hover:text-brass"
+            className="block font-mono text-sm text-night hover:text-brass"
           >
             {site.email}
           </a>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-5 py-5 text-[11px] tracking-wide text-mist/70 md:flex-row md:items-center md:justify-between md:px-10">
+      <div className="border-t border-black/10">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-5 py-5 text-[11px] tracking-wide text-night/55 md:flex-row md:items-center md:justify-between md:px-10">
           <p>
             © {new Date().getFullYear()} {site.legal}. Registered company no.{" "}
             {site.companyNo}.

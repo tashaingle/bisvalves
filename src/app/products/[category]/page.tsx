@@ -40,25 +40,25 @@ export default async function CategoryPage({ params }: Props) {
               Enquire on this range →
             </Link>
           </div>
-          <div className="grid gap-px bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {items.map((p) => (
               <Link
                 key={p.slug}
                 href={`/products/${p.category}/${p.slug}`}
-                className="group flex min-h-[300px] flex-col bg-ink p-7"
+                className="group flex min-h-[300px] flex-col border border-black/10 bg-white p-7"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={p.image}
                   alt=""
-                  className="mx-auto h-36 object-contain mix-blend-lighten transition duration-500 group-hover:scale-110"
+                  className="mx-auto h-36 object-contain transition duration-500 group-hover:scale-105"
                 />
                 <p className="mt-4 font-mono text-[11px] tracking-[0.22em] text-brass uppercase">
                   {p.code}
                 </p>
-                <h2 className="mt-2 font-display text-2xl text-paper uppercase">{p.name}</h2>
-                <p className="mt-2 text-sm text-mist">{p.summary}</p>
-                <p className="mt-auto pt-5 font-mono text-[11px] tracking-[0.16em] text-paper uppercase">
+                <h2 className="mt-2 font-display text-2xl text-night uppercase">{p.name}</h2>
+                <p className="mt-2 text-sm text-night/70">{p.summary}</p>
+                <p className="mt-auto pt-5 font-mono text-[11px] tracking-[0.16em] text-night uppercase">
                   {p.pressureLabel}{" "}
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </p>

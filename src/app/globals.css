@@ -6,7 +6,7 @@
   --steel: #ffffff;
   --panel: #e7f2e6;
   --line: rgba(54, 165, 66, 0.28);
-  --mist: #c5d6cb;
+  --mist: #3f5346;
   --paper: #ffffff;
   --night: #14301c;
   --brass: #36a542;
@@ -55,14 +55,6 @@ a {
 
 .font-display {
   font-family: var(--font-display), "Arial Narrow", sans-serif;
-}
-
-.grid-overlay {
-  background-image:
-    linear-gradient(rgba(54, 165, 66, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(54, 165, 66, 0.12) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
 }
 
 .hairline {
