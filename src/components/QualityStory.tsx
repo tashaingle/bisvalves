@@ -16,7 +16,7 @@ export function QualityStory() {
           <p className="mt-6 max-w-xl text-night/70">
             Every valve is proof-tested, typically to 1.5× rated working pressure,
             then function and leakage tested on oil, water glycol, demineralised
-            water or nitrogen.
+            water or&nbsp;nitrogen.
           </p>
         </Reveal>
         <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">

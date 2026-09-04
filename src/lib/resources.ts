@@ -132,7 +132,7 @@ export const certifications = [
   {
     code: "ISO 9001:2015",
     title: "Quality management",
-    body: "Bureau Veritas approved quality system covering design, manufacture, assembly and test of pressure and flow control products.",
+    body: "Bureau Veritas approved quality system covering design, manufacture, assembly and test of pressure and flow control\u00A0products.",
   },
   {
     code: "ATEX 2014/34/EU",

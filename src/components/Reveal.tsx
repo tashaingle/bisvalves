@@ -42,10 +42,12 @@ export function CountUp({
   value,
   suffix = "",
   className = "",
+  grouped = true,
 }: {
   value: number;
   suffix?: string;
   className?: string;
+  grouped?: boolean;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -63,7 +65,7 @@ export function CountUp({
           const t = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - t, 3);
           const current = Math.round(value * eased);
-          el.textContent = `${current.toLocaleString()}${suffix}`;
+          el.textContent = `${grouped ? current.toLocaleString() : String(current)}${suffix}`;
           if (t < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -73,7 +75,7 @@ export function CountUp({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [value, suffix]);
+  }, [value, suffix, grouped]);
 
   return (
     <span ref={ref} className={className}>
