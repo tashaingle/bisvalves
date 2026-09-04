@@ -3,21 +3,20 @@
 import Link from "next/link";
 import { CountUp } from "./Reveal";
 
-function ValveImage({ className }: { className?: string }) {
+function ValveVideo({ className }: { className?: string }) {
   return (
-    <picture>
-      <source srcSet="/images/hero-valve.webp" type="image/webp" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/hero-valve.jpg"
-        alt="Precision-machined BiS stainless steel high-pressure valve"
-        width={2560}
-        height={1440}
-        fetchPriority="high"
-        decoding="async"
-        className={className}
-      />
-    </picture>
+    <video
+      className={className}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      poster="/images/hero-valve-poster.jpg"
+      aria-hidden
+    >
+      <source src="/videos/hero-valve.mp4" type="video/mp4" />
+    </video>
   );
 }
 
@@ -25,7 +24,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="pointer-events-none absolute inset-y-0 left-[28%] right-0 hidden lg:block">
-        <ValveImage className="h-full w-full object-cover object-right" />
+        <ValveVideo className="h-full w-full object-cover object-right" />
         <div className="absolute inset-y-0 left-0 w-[38%] bg-gradient-to-r from-white via-white/75 to-transparent" />
       </div>
 
@@ -89,7 +88,7 @@ export function Hero() {
       </div>
 
       <div className="relative lg:hidden">
-        <ValveImage className="h-[280px] w-full object-cover object-right sm:h-[380px]" />
+        <ValveVideo className="h-[280px] w-full object-cover object-right sm:h-[380px]" />
       </div>
     </section>
   );
