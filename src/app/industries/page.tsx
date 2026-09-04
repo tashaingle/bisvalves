@@ -16,6 +16,7 @@ export default function IndustriesPage() {
       <PageHero
         kicker="Industries"
         title="Specified where failure is not an option."
+        titleClassName="mt-4 font-display text-[clamp(1.15rem,3.4vw,4.5rem)] leading-none font-semibold text-night uppercase whitespace-nowrap"
         lede="Low-flow, high-pressure control for offshore oil and gas, industrial gas, water hydraulics, power generation and research systems."
       />
       <section>
