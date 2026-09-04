@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:grid-cols-12 md:px-10">
         <div className="md:col-span-4">
-          <Logo />
+          <Logo size="lg" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-night/70">
             Specialist UK manufacturer of small-bore stainless steel pressure and
             flow control valves for the world&apos;s most demanding environments.

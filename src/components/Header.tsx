@@ -28,7 +28,7 @@ export function Header() {
         scrolled || open ? "border-b border-black/8 shadow-sm" : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 md:px-10">
+      <div className="mx-auto flex h-[80px] max-w-[1440px] items-center justify-between px-5 md:px-10">
         <Logo />
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => {
