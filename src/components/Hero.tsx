@@ -6,14 +6,14 @@ import { CountUp } from "./Reveal";
 export function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-white">
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[62%]">
+      <div className="pointer-events-none absolute inset-y-0 left-[18%] right-0 w-auto lg:left-[28%]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/hero-valve.jpg"
           alt="Precision-machined BiS stainless steel high-pressure valve"
-          className="h-full w-full object-cover object-[70%_center]"
+          className="h-full w-full object-cover object-right"
         />
-        <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-white via-white/80 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-[38%] bg-gradient-to-r from-white via-white/75 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent lg:hidden" />
       </div>
 
