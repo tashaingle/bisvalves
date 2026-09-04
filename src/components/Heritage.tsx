@@ -16,7 +16,7 @@ export function Heritage() {
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
             03 — Engineering heritage
           </p>
-          <h2 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] font-semibold text-paper uppercase md:text-7xl">
+          <h2 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-7xl">
             50+ years of
             <br />
             engineering
@@ -27,12 +27,12 @@ export function Heritage() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="text-lg leading-relaxed text-mist">
+            <p className="text-lg leading-relaxed text-night/70">
               Founded in 1971 as Bournemouth Industrial Supplies, BiS is a
               specialist UK manufacturer solving demanding flow-control problems
               for topside, subsea and downhole service.
             </p>
-            <p className="mt-5 text-mist">
+            <p className="mt-5 text-night/70">
               Not a catalogue house. A Dorset engineering company that machines,
               assembles and tests the valves it designs — in stainless, super
               duplex, Hastelloy and titanium.
@@ -41,7 +41,7 @@ export function Heritage() {
           <div className="grid grid-cols-2 gap-px bg-white/10 lg:col-span-7">
             {figures.map((f) => (
               <div key={f.label} className="bg-charcoal p-6 md:p-8">
-                <p className="font-display text-5xl text-paper md:text-6xl">
+                <p className="font-display text-5xl text-night md:text-6xl">
                   <CountUp value={f.value} suffix={f.suffix} />
                 </p>
                 <p className="mt-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase">
@@ -59,7 +59,7 @@ export function Heritage() {
             "Bespoke solutions",
             "Global distribution",
           ].map((item) => (
-            <div key={item} className="bg-ink px-6 py-5 font-display text-2xl tracking-wide text-paper uppercase">
+            <div key={item} className="bg-white px-6 py-5 font-display text-2xl tracking-wide text-night uppercase">
               {item}
             </div>
           ))}

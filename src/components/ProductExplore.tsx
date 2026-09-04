@@ -13,12 +13,12 @@ export function ProductExplore() {
             01 — Product discovery
           </p>
           <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <h2 className="max-w-3xl font-display text-5xl leading-[0.95] font-semibold tracking-tight text-paper uppercase md:text-7xl">
+            <h2 className="max-w-3xl font-display text-5xl leading-[0.95] font-semibold tracking-tight text-night uppercase md:text-7xl">
               Explore our
               <br />
               valves.
             </h2>
-            <p className="max-w-sm text-mist">
+            <p className="max-w-sm text-night/70">
               Small-bore stainless steel pressure and flow control. Standard
               ranges, cartridge and manifold constructions, and fully bespoke
               engineering.

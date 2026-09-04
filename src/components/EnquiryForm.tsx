@@ -41,18 +41,18 @@ export function EnquiryForm({ product }: { product?: string }) {
         <textarea
           name="message"
           rows={5}
-          className="mt-2 w-full border border-white/15 bg-transparent px-4 py-3 text-sm text-paper outline-none focus:border-brass"
+          className="mt-2 w-full border border-black/15 bg-white px-4 py-3 text-sm text-night outline-none focus:border-brass"
         />
       </label>
       <button
         type="submit"
-        className="inline-flex w-fit items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-ink uppercase hover:bg-brass-bright"
+        className="inline-flex w-fit items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-white uppercase hover:bg-brass-bright"
       >
         {sent ? "Opening mail client" : "Talk to an engineer"}
         <span aria-hidden>→</span>
       </button>
       {sent && (
-        <p className="text-sm text-mist">
+        <p className="text-sm text-night/70">
           If your mail client does not open, write to{" "}
           <a className="text-brass" href={`mailto:${site.email}`}>
             {site.email}
@@ -87,7 +87,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full border border-white/15 bg-transparent px-4 py-3 text-sm text-paper outline-none placeholder:text-mist/40 focus:border-brass"
+        className="mt-2 w-full border border-black/15 bg-white px-4 py-3 text-sm text-night outline-none placeholder:text-mist/40 focus:border-brass"
       />
     </label>
   );

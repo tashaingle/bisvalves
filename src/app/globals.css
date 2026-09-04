@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #08090b;
-  --charcoal: #0e1013;
-  --steel: #15181d;
-  --panel: #1b1f26;
-  --line: rgba(196, 165, 116, 0.22);
-  --mist: #b7b2a8;
-  --paper: #f3efe6;
-  --brass: #c4a574;
-  --brass-bright: #e2c48c;
+  --ink: #0e3a18;
+  --charcoal: #f4f8f3;
+  --steel: #ffffff;
+  --panel: #e7f2e6;
+  --line: rgba(54, 165, 66, 0.28);
+  --mist: #c5d6cb;
+  --paper: #ffffff;
+  --night: #14301c;
+  --brass: #36a542;
+  --brass-bright: #4cbe58;
 }
 
 @theme inline {
@@ -19,6 +20,7 @@
   --color-panel: var(--panel);
   --color-mist: var(--mist);
   --color-paper: var(--paper);
+  --color-night: var(--night);
   --color-brass: var(--brass);
   --color-brass-bright: var(--brass-bright);
   --font-sans: var(--font-geist-sans);
@@ -32,19 +34,19 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--ink);
+  background: var(--charcoal);
 }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--charcoal);
+  color: var(--night);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
   background: var(--brass);
-  color: var(--ink);
+  color: var(--paper);
 }
 
 a {
@@ -57,8 +59,8 @@ a {
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(196, 165, 116, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 165, 116, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(54, 165, 66, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(54, 165, 66, 0.12) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
 }
@@ -67,7 +69,7 @@ a {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(196, 165, 116, 0.55),
+    rgba(54, 165, 66, 0.55),
     transparent
   );
 }

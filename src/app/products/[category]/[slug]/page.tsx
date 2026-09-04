@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: Props) {
               {cat?.name}
             </Link>
           </p>
-          <div className="relative mt-6 overflow-hidden border border-white/10 bg-charcoal">
+          <div className="relative mt-6 overflow-hidden border border-white/10 bg-ink">
             <div className="pointer-events-none absolute inset-0 grid-overlay opacity-50" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="#enquire"
-              className="border border-brass bg-brass px-5 py-3 font-mono text-[11px] tracking-[0.22em] text-ink uppercase"
+              className="border border-brass bg-brass px-5 py-3 font-mono text-[11px] tracking-[0.22em] text-white uppercase"
             >
               Enquire
             </Link>

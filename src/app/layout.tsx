@@ -53,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-GB"
       className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ink font-sans text-paper">
+      <body className="min-h-full bg-charcoal font-sans text-night">
         <Header />
         <main>{children}</main>
         <Footer />

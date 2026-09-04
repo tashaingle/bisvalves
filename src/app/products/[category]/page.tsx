@@ -35,7 +35,7 @@ export default async function CategoryPage({ params }: Props) {
             </p>
             <Link
               href={`/contact?product=${cat.name}`}
-              className="font-mono text-[11px] tracking-[0.22em] text-paper uppercase hover:text-brass"
+              className="font-mono text-[11px] tracking-[0.22em] text-night uppercase hover:text-brass"
             >
               Enquire on this range →
             </Link>

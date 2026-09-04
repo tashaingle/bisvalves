@@ -35,15 +35,15 @@ export default function IndustriesPage() {
                 className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="flex flex-col justify-center bg-charcoal px-8 py-16 md:px-16">
+            <div className="flex flex-col justify-center bg-white px-8 py-16 md:px-16">
               <p className="font-mono text-[11px] tracking-[0.28em] text-brass uppercase">
                 {String(i + 1).padStart(2, "0")} · {ind.kicker}
               </p>
-              <h2 className="mt-4 font-display text-5xl text-paper uppercase md:text-6xl">
+              <h2 className="mt-4 font-display text-5xl text-night uppercase md:text-6xl">
                 {ind.name}
               </h2>
-              <p className="mt-5 max-w-md text-mist">{ind.summary}</p>
-              <span className="mt-8 font-mono text-[11px] tracking-[0.22em] text-paper uppercase">
+              <p className="mt-5 max-w-md text-night/70">{ind.summary}</p>
+              <span className="mt-8 font-mono text-[11px] tracking-[0.22em] text-night uppercase">
                 View application →
               </span>
             </div>

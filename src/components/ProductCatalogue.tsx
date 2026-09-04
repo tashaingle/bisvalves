@@ -42,7 +42,7 @@ export function ProductCatalogue() {
   return (
     <div className="grid gap-10 lg:grid-cols-12">
       <aside className="lg:col-span-3">
-        <div className="sticky top-24 space-y-8 border border-white/10 p-6">
+        <div className="sticky top-24 space-y-8 border border-black/10 bg-white p-6">
           <label className="block">
             <span className="font-mono text-[10px] tracking-[0.24em] text-brass uppercase">
               Search
@@ -51,7 +51,7 @@ export function ProductCatalogue() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Model, function…"
-              className="mt-2 w-full border border-white/15 bg-transparent px-3 py-2 text-sm outline-none focus:border-brass"
+              className="mt-2 w-full border border-black/15 bg-white px-3 py-2 text-sm text-night outline-none focus:border-brass"
             />
           </label>
           <Filter
@@ -90,7 +90,7 @@ export function ProductCatalogue() {
               ...allMaterials.map((m) => ({ id: m, label: m })),
             ]}
           />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-mist uppercase">
+          <p className="font-mono text-[11px] tracking-[0.16em] text-night/60 uppercase">
             {filtered.length} products
           </p>
         </div>
@@ -123,7 +123,7 @@ function Filter({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full border border-white/15 bg-ink px-3 py-2 text-sm text-paper outline-none focus:border-brass"
+        className="mt-2 w-full border border-black/15 bg-white px-3 py-2 text-sm text-night outline-none focus:border-brass"
       >
         {options.map((o) => (
           <option key={o.id} value={o.id}>

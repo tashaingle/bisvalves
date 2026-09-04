@@ -24,11 +24,11 @@ export default function ContactPage() {
           </div>
           <aside className="md:col-span-5 space-y-10">
             {site.offices.map((o) => (
-              <div key={o.name} className="border border-white/10 p-6">
+              <div key={o.name} className="border border-black/10 bg-white p-6">
                 <p className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase">
                   {o.name}
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-mist">
+                <p className="mt-4 text-sm leading-relaxed text-night/70">
                   {o.lines.map((l) => (
                     <span key={l} className="block">
                       {l}
@@ -37,25 +37,25 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={o.map}
-                  className="mt-4 inline-block font-mono text-[11px] tracking-[0.2em] text-paper uppercase hover:text-brass"
+                  className="mt-4 inline-block font-mono text-[11px] tracking-[0.2em] text-night uppercase hover:text-brass"
                 >
                   Directions →
                 </a>
               </div>
             ))}
-            <div className="border border-white/10 p-6">
+            <div className="border border-black/10 bg-white p-6">
               <p className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase">
                 Direct
               </p>
-              <a href={site.phoneHref} className="mt-4 block text-paper hover:text-brass">
+              <a href={site.phoneHref} className="mt-4 block text-night hover:text-brass">
                 {site.phone}
               </a>
-              <a href={`mailto:${site.email}`} className="block text-paper hover:text-brass">
+              <a href={`mailto:${site.email}`} className="block text-night hover:text-brass">
                 {site.email}
               </a>
-              <p className="mt-4 text-sm text-mist">Fax {site.fax}</p>
+              <p className="mt-4 text-sm text-night/70">Fax {site.fax}</p>
             </div>
-            <p className="text-sm text-mist">
+            <p className="text-sm text-night/70">
               For back-pressure maintaining valves, regulators and oxygen
               service visit{" "}
               <a href={site.sister.href} className="text-brass">

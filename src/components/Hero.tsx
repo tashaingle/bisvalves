@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-ink">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-70" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(196,165,116,0.08),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(54,165,66,0.18),transparent_55%)]" />
 
       <div className="relative mx-auto grid min-h-[100svh] max-w-[1440px] items-center gap-8 px-5 pt-24 pb-16 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-6">
@@ -54,7 +54,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/products"
-              className="inline-flex items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-ink uppercase transition-colors hover:bg-brass-bright"
+              className="inline-flex items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-white uppercase transition-colors hover:bg-brass-bright"
             >
               Explore products
               <span aria-hidden>→</span>
@@ -107,7 +107,7 @@ export function Hero() {
             <path
               className="draw-line"
               d="M80 120 H220 M80 120 V80"
-              stroke="#c4a574"
+              stroke="#36A542"
               strokeWidth="0.8"
               pathLength="1"
               opacity="0.7"
@@ -115,7 +115,7 @@ export function Hero() {
             <path
               className="draw-line"
               d="M520 160 H400 M520 160 V110"
-              stroke="#c4a574"
+              stroke="#36A542"
               strokeWidth="0.8"
               pathLength="1"
               style={{ animationDelay: "0.3s" }}
@@ -124,22 +124,22 @@ export function Hero() {
             <path
               className="draw-line"
               d="M90 560 H250 M90 560 V610"
-              stroke="#c4a574"
+              stroke="#36A542"
               strokeWidth="0.8"
               pathLength="1"
               style={{ animationDelay: "0.55s" }}
               opacity="0.7"
             />
-            <circle cx="80" cy="120" r="2.5" fill="#c4a574" />
-            <circle cx="520" cy="160" r="2.5" fill="#c4a574" />
-            <circle cx="90" cy="560" r="2.5" fill="#c4a574" />
-            <text x="88" y="74" fill="#c4a574" fontSize="10" fontFamily="ui-monospace">
+            <circle cx="80" cy="120" r="2.5" fill="#36A542" />
+            <circle cx="520" cy="160" r="2.5" fill="#36A542" />
+            <circle cx="90" cy="560" r="2.5" fill="#36A542" />
+            <text x="88" y="74" fill="#36A542" fontSize="10" fontFamily="ui-monospace">
               Ø BODY 316
             </text>
-            <text x="404" y="102" fill="#c4a574" fontSize="10" fontFamily="ui-monospace">
+            <text x="404" y="102" fill="#36A542" fontSize="10" fontFamily="ui-monospace">
               20,000 PSI
             </text>
-            <text x="96" y="632" fill="#c4a574" fontSize="10" fontFamily="ui-monospace">
+            <text x="96" y="632" fill="#36A542" fontSize="10" fontFamily="ui-monospace">
               PORT 1/4–1&quot;
             </text>
           </svg>

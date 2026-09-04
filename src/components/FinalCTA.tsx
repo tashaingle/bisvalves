@@ -25,7 +25,7 @@ export function FinalCTA() {
         </p>
         <Link
           href="/contact"
-          className="mt-10 inline-flex items-center gap-3 border border-brass bg-brass px-7 py-4 font-mono text-[12px] tracking-[0.24em] text-ink uppercase hover:bg-brass-bright"
+          className="mt-10 inline-flex items-center gap-3 border border-brass bg-brass px-7 py-4 font-mono text-[12px] tracking-[0.24em] text-white uppercase hover:bg-brass-bright"
         >
           Talk to an engineer
           <span aria-hidden>→</span>

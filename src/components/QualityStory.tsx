@@ -10,10 +10,10 @@ export function QualityStory() {
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
             05 — Quality as engineering
           </p>
-          <h2 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] font-semibold text-paper uppercase md:text-6xl">
+          <h2 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
             Assurance is not a logo strip.
           </h2>
-          <p className="mt-6 max-w-xl text-mist">
+          <p className="mt-6 max-w-xl text-night/70">
             Every valve is proof-tested, typically to 1.5× rated working pressure,
             then function and leakage tested on oil, water glycol, demineralised
             water or nitrogen.
@@ -21,14 +21,14 @@ export function QualityStory() {
         </Reveal>
         <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
           {certifications.map((c) => (
-            <article key={c.code} className="bg-ink p-7">
+            <article key={c.code} className="bg-white p-7">
               <p className="font-mono text-[11px] tracking-[0.2em] text-brass uppercase">
                 {c.code}
               </p>
-              <h3 className="mt-4 font-display text-2xl text-paper uppercase">
+              <h3 className="mt-4 font-display text-2xl text-night uppercase">
                 {c.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-mist">{c.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-night/70">{c.body}</p>
             </article>
           ))}
         </div>

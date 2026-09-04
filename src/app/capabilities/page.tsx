@@ -75,14 +75,14 @@ export default function CapabilitiesPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={s.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
           </div>
-          <div className="flex flex-col justify-center bg-charcoal px-8 py-20 md:px-16">
+          <div className="flex flex-col justify-center bg-white px-8 py-20 md:px-16">
             <p className="font-mono text-[12px] tracking-[0.32em] text-brass">{s.n}</p>
-            <h2 className="mt-4 font-display text-6xl text-paper uppercase md:text-7xl">
+            <h2 className="mt-4 font-display text-6xl text-night uppercase md:text-7xl">
               {s.title}
             </h2>
             <ul className="mt-8 space-y-4">
               {s.points.map((p) => (
-                <li key={p} className="border-l border-brass/50 pl-4 text-mist">
+                <li key={p} className="border-l border-brass/50 pl-4 text-night/70">
                   {p}
                 </li>
               ))}

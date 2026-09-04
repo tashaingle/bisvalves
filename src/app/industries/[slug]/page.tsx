@@ -31,11 +31,11 @@ export default async function IndustryPage({ params }: Props) {
       <section className="bg-charcoal py-16 md:py-24">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 md:grid-cols-12 md:px-10">
           <div className="md:col-span-7">
-            <p className="text-lg leading-relaxed text-mist">{ind.body}</p>
-            <h2 className="mt-12 font-display text-3xl text-paper uppercase">Typical duties</h2>
+            <p className="text-lg leading-relaxed text-night/70">{ind.body}</p>
+            <h2 className="mt-12 font-display text-3xl text-night uppercase">Typical duties</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {ind.applications.map((a) => (
-                <li key={a} className="border-l border-brass pl-4 text-paper">
+                <li key={a} className="border-l border-brass pl-4 text-night">
                   {a}
                 </li>
               ))}
@@ -43,7 +43,7 @@ export default async function IndustryPage({ params }: Props) {
           </div>
           <aside className="md:col-span-5">
             <div className="border border-white/10 p-6">
-              <h2 className="font-display text-2xl text-paper uppercase">Specified products</h2>
+              <h2 className="font-display text-2xl text-night uppercase">Specified products</h2>
               <ul className="mt-5 space-y-3">
                 {related.map((c) => (
                   <li key={c.slug}>
