@@ -80,7 +80,7 @@ export function Hero() {
             </div>
             <div>
               <p className="font-display text-3xl text-night">ISO</p>
-              <p className="mt-1 font-mono text-[10px] tracking-[0.2em] text-night/55 uppercase">
+              <p className="mt-1 font-mono text-[8px] tracking-[0.08em] text-night/55 uppercase whitespace-nowrap sm:text-[10px] sm:tracking-[0.2em]">
                 9001 · PED · ATEX
               </p>
             </div>
