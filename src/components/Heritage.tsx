@@ -17,8 +17,8 @@ export function Heritage() {
           </p>
         </Reveal>
 
-        <div className="mt-4 grid items-start gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+        <div className="mt-4 grid items-stretch gap-8 md:grid-cols-12">
+          <div className="flex flex-col justify-center md:col-span-5">
             <h2 className="font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
               50+ years of
               <br />
@@ -37,9 +37,9 @@ export function Heritage() {
               duplex, Hastelloy and titanium.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-px bg-black/10 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-px bg-black/10 md:col-span-7">
             {figures.map((f) => (
-              <div key={f.label} className="bg-white p-6 md:p-8">
+              <div key={f.label} className="flex flex-col justify-center bg-white p-6 md:p-8">
                 <p className="font-display text-5xl text-night md:text-6xl">
                   <CountUp value={f.value} suffix={f.suffix} grouped={f.grouped} />
                 </p>

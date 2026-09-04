@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Heritage } from "@/components/Heritage";
 import { FinalCTA } from "@/components/FinalCTA";
-import { CountUp } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About BiS",
@@ -51,23 +50,6 @@ export default function AboutPage() {
               and fuel systems.
             </p>
           </div>
-        </div>
-        <div className="mx-auto mt-20 grid max-w-[1440px] grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
-          {[
-            { v: 50, s: "+", l: "Years" },
-            { v: 1379, s: "", l: "Bar test" },
-            { v: 20, s: "k", l: "PSI capability" },
-            { v: 2, s: "", l: "Dorset sites" },
-          ].map((x) => (
-            <div key={x.l} className="bg-white p-8">
-              <p className="font-display text-5xl text-night">
-                <CountUp value={x.v} suffix={x.s} />
-              </p>
-              <p className="mt-2 font-mono text-[11px] tracking-[0.2em] text-brass uppercase">
-                {x.l}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
       <FinalCTA />
