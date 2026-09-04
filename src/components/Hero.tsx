@@ -29,19 +29,17 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col px-5 pt-28 pb-10 md:px-10 lg:h-[100svh] lg:pb-12">
-        <div className="flex w-full max-w-xl flex-col bg-white lg:h-full lg:max-w-2xl lg:justify-between lg:bg-transparent">
-          <div>
-            <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-              Est. 1971 · Dorset, England
-            </p>
-            <h1 className="mt-5 font-display text-[16vw] leading-[0.82] font-semibold tracking-[-0.03em] text-night uppercase sm:text-[12vw] lg:mt-8 lg:text-[8.4vw] xl:text-[118px]">
-              Precision
-              <br />
-              under
-              <br />
-              <span className="text-brass">pressure.</span>
-            </h1>
-          </div>
+        <div className="flex w-full max-w-xl flex-col bg-white lg:grid lg:h-full lg:max-w-2xl lg:grid-rows-[auto_1fr_auto_1fr] lg:bg-transparent">
+          <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
+            Est. 1971 · Dorset, England
+          </p>
+          <h1 className="mt-5 font-display text-[16vw] leading-[0.82] font-semibold tracking-[-0.03em] text-night uppercase sm:text-[12vw] lg:mt-0 lg:self-center lg:text-[8.4vw] xl:text-[118px]">
+            Precision
+            <br />
+            under
+            <br />
+            <span className="text-brass">pressure.</span>
+          </h1>
 
           <div className="mt-8 lg:mt-0">
             <p className="max-w-md text-lg leading-relaxed text-night/70 lg:max-w-lg lg:text-xl">
@@ -65,7 +63,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-black/10 pt-6 lg:mt-0 lg:max-w-xl lg:gap-10 lg:pt-8">
+          <div className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-black/10 pt-6 lg:mt-0 lg:max-w-xl lg:self-end lg:gap-10 lg:pt-8">
             <div>
               <p className="font-display text-3xl text-night lg:text-4xl">
                 <CountUp value={20000} />
