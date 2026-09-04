@@ -1,39 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import { CountUp } from "./Reveal";
 
 export function Hero() {
-  const stage = useRef<HTMLDivElement>(null);
-  const product = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = product.current;
-    const host = stage.current;
-    if (!el || !host) return;
-
-    const onMove = (e: MouseEvent) => {
-      const r = host.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      el.style.transform = `rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg)`;
-    };
-    const onLeave = () => {
-      el.style.transform = "rotateX(0deg) rotateY(0deg)";
-    };
-    host.addEventListener("mousemove", onMove);
-    host.addEventListener("mouseleave", onLeave);
-    return () => {
-      host.removeEventListener("mousemove", onMove);
-      host.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-white">
-      <div className="relative mx-auto grid min-h-[100svh] max-w-[1440px] items-center gap-8 px-5 pt-24 pb-16 md:px-10 lg:grid-cols-12">
-        <div className="lg:col-span-6">
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[62%]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero-valve.jpg"
+          alt="Precision-machined BiS stainless steel high-pressure valve"
+          className="h-full w-full object-cover object-[70%_center]"
+        />
+        <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-white via-white/80 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent lg:hidden" />
+      </div>
+
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] items-center px-5 pt-28 pb-16 md:px-10">
+        <div className="w-full max-w-xl lg:max-w-2xl">
           <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
             Est. 1971 · Dorset, England
           </p>
@@ -58,7 +43,7 @@ export function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 border border-night/20 px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-night uppercase transition-colors hover:border-brass hover:text-brass"
+              className="inline-flex items-center gap-3 border border-night/20 bg-white/80 px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-night uppercase transition-colors hover:border-brass hover:text-brass"
             >
               Discuss your application
             </Link>
@@ -87,25 +72,6 @@ export function Hero() {
                 9001 · PED · ATEX
               </p>
             </div>
-          </div>
-        </div>
-
-        <div
-          ref={stage}
-          className="relative flex min-h-[420px] items-center justify-center lg:col-span-6 lg:min-h-[640px]"
-          style={{ perspective: "1200px" }}
-        >
-          <div
-            ref={product}
-            className="float-y relative z-10 w-[78%] max-w-[460px] transition-transform duration-200 ease-out"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/hero-valve.jpg"
-              alt="Precision-machined BiS stainless steel high-pressure valve"
-              className="relative z-10 w-full"
-            />
           </div>
         </div>
       </div>
