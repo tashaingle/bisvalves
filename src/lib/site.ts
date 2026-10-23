@@ -11,6 +11,11 @@ export const site = {
   fax: "+44 (0)1202 896718",
   email: "salesadmin@bisvalves.co.uk",
   founded: 1971,
+  hours: [
+    { days: "Monday – Thursday", time: "08:00 – 17:00" },
+    { days: "Friday", time: "08:00 – 16:00" },
+    { days: "Saturday – Sunday", time: "Closed" },
+  ],
   social: {
     twitter: "https://twitter.com/BISValves",
     linkedin: "https://www.linkedin.com/company/bis-valves-ltd-",
@@ -32,6 +37,7 @@ export const site = {
         "United Kingdom",
       ],
       map: "https://maps.google.com/?q=BiS+Valves+Ltd+Collingwood+Road+West+Moors",
+      embed: "https://maps.google.com/maps?q=Kingfisher+Park,+Collingwood+Road,+West+Moors,+BH21+6US&z=15&output=embed",
     },
     {
       name: "Manufacturing",
@@ -42,6 +48,7 @@ export const site = {
         "United Kingdom",
       ],
       map: "https://maps.google.com/?q=82+Condor+Close+Three+Legged+Cross+BH21+6SU",
+      embed: "https://maps.google.com/maps?q=Condor+Close,+Three+Legged+Cross,+BH21+6SU&z=15&output=embed",
     },
   ],
 };

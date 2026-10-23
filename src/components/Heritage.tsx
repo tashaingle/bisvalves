@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Arrow } from "./Arrow";
 
@@ -12,12 +13,12 @@ export function Heritage() {
   return (
     <section className="grid bg-white lg:grid-cols-2">
       <div className="flex items-center justify-center bg-white px-6 pt-12 lg:px-12 lg:py-16">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/images/bis/3bc25m.webp"
           alt="CAD render of the BiS 3BC25M solenoid valve"
           width={1400}
           height={1194}
+          sizes="(min-width: 1024px) 560px, 100vw"
           className="h-auto w-full max-w-[560px] drop-shadow-[0_24px_30px_rgba(15,58,30,0.14)]"
         />
       </div>

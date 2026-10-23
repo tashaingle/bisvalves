@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const sizes = {
@@ -17,10 +18,13 @@ export function Logo({
 }) {
   return (
     <Link href="/" className={`inline-flex items-center ${className}`} aria-label="BiS Valves home">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/brand/bis-valves-logo.webp"
         alt="BiS Valves"
+        width={591}
+        height={701}
+        sizes="80px"
+        preload={size === "sm"}
         className={`${sizes[size]} w-auto`}
       />
     </Link>

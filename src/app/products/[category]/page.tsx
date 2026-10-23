@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { categories, productsIn } from "@/lib/products";
 import { PageHero } from "@/components/PageHero";
 import { FinalCTA } from "@/components/FinalCTA";
+import { Arrow } from "@/components/Arrow";
+import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -26,44 +28,50 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <PageHero kicker="Product range" title={cat.name} lede={cat.description} image={cat.image} />
-      <section className="bg-charcoal py-16 md:py-24">
+      <PageHero kicker="Product range" title={cat.name} lede={cat.description} />
+      <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-[1320px] px-5 md:px-10">
-          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-            <p className="text-[13px] text-brass-bright font-medium">
-              {items.length} models · {cat.pressure}
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-night pb-5">
+            <p className="text-night/70 tabular-nums">
+              {items.length} {items.length === 1 ? "model" : "models"} ·{" "}
+              {/^(To )?d/.test(cat.pressure)
+                ? `up to ${cat.pressure.replace(/^To /, "")}`
+                : cat.pressure.toLowerCase()}
             </p>
-            <Link
-              href={`/contact?product=${cat.name}`}
-              className="text-[13px] text-night hover:text-brass-bright font-medium"
+            <a
+              href={`mailto:${site.email}?subject=${encodeURIComponent(`Enquiry: ${cat.name}`)}`}
+              className="link-arrow"
             >
-              Enquire on this range
-            </Link>
+              Email us about this range
+              <Arrow />
+            </a>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {/* Products in a range share one photo, so list them as a spec table. */}
+          <div className="hidden grid-cols-12 gap-6 pb-3 text-[13px] text-night/55 md:grid">
+            <span className="col-span-2">Model</span>
+            <span className="col-span-3">Product</span>
+            <span className="col-span-5">Description</span>
+            <span className="col-span-2 text-right">Rating</span>
+          </div>
+          <ul className="border-t border-rule">
             {items.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/products/${p.category}/${p.slug}`}
-                className="group flex min-h-[300px] flex-col border border-rule bg-white p-7"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.image}
-                  alt=""
-                  className="mx-auto h-36 object-contain transition duration-500 group-hover:scale-105"
-                />
-                <p className="mt-4 text-[13px] text-brass-bright font-medium">
-                  {p.code}
-                </p>
-                <h2 className="mt-2 font-display text-xl text-ink font-semibold">{p.name}</h2>
-                <p className="mt-2 text-sm text-night/70">{p.summary}</p>
-                <p className="mt-auto pt-5 text-[13px] text-night font-medium">
-                  {p.pressureLabel}
-                </p>
-              </Link>
+              <li key={p.slug} className="border-b border-rule">
+                <Link
+                  href={`/products/${p.category}/${p.slug}`}
+                  className="group grid gap-x-6 gap-y-1 py-5 md:grid-cols-12 md:items-baseline"
+                >
+                  <span className="font-display text-xl font-semibold text-ink tabular-nums group-hover:text-brass-bright md:col-span-2">
+                    {p.code}
+                  </span>
+                  <span className="font-medium text-night md:col-span-3">{p.name}</span>
+                  <span className="text-[15px] text-night/65 md:col-span-5">{p.summary}</span>
+                  <span className="text-[15px] text-night tabular-nums md:col-span-2 md:text-right">
+                    {p.pressureLabel}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
       <FinalCTA />

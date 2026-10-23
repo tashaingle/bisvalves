@@ -1,15 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   allMaterials,
   categories,
   products,
   pressureBands,
-  type Product,
 } from "@/lib/products";
 import { industries } from "@/lib/industries";
+import { ProductCard } from "./ProductCard";
 
 export function ProductCatalogue() {
   const [type, setType] = useState("all");
@@ -42,16 +41,16 @@ export function ProductCatalogue() {
   return (
     <div className="grid gap-10 lg:grid-cols-12">
       <aside className="lg:col-span-3">
-        <div className="sticky top-24 space-y-8 border border-rule bg-white p-6">
+        <div className="sticky top-24 space-y-6 rounded-xl border border-rule bg-white p-6">
           <label className="block">
-            <span className="text-[13px] text-brass-bright font-medium">
+            <span className="text-[14px] font-medium text-night">
               Search
             </span>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Model, function…"
-              className="mt-2 w-full border border-black/15 bg-white px-3 py-2 text-sm text-night outline-none focus:border-brass"
+              className="mt-2 h-11 w-full rounded-lg border border-night/20 bg-white px-3 text-[15px] text-night outline-none focus:border-brass-bright"
             />
           </label>
           <Filter
@@ -90,14 +89,18 @@ export function ProductCatalogue() {
               ...allMaterials.map((m) => ({ id: m, label: m })),
             ]}
           />
-          <p className="text-[13px] text-night/60 font-medium">
+          <p className="text-[14px] text-night/60 tabular-nums">
             {filtered.length} products
           </p>
         </div>
       </aside>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 lg:col-span-9">
+      <div className="grid content-start gap-4 sm:grid-cols-2 lg:col-span-9 xl:grid-cols-3">
         {filtered.map((p) => (
-          <ProductTile key={`${p.category}-${p.slug}`} product={p} />
+          <ProductCard
+            key={`${p.category}-${p.slug}`}
+            product={p}
+            label={`${categories.find((c) => c.slug === p.category)?.short} · ${p.code}`}
+          />
         ))}
       </div>
     </div>
@@ -117,13 +120,13 @@ function Filter({
 }) {
   return (
     <label className="block">
-      <span className="text-[13px] text-brass-bright font-medium">
+      <span className="text-[14px] font-medium text-night">
         {label}
       </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full border border-black/15 bg-white px-3 py-2 text-sm text-night outline-none focus:border-brass"
+        className="mt-2 h-11 w-full rounded-lg border border-night/20 bg-white px-3 text-[15px] text-night outline-none focus:border-brass-bright"
       >
         {options.map((o) => (
           <option key={o.id} value={o.id}>
@@ -132,30 +135,5 @@ function Filter({
         ))}
       </select>
     </label>
-  );
-}
-
-function ProductTile({ product }: { product: Product }) {
-  const cat = categories.find((c) => c.slug === product.category);
-  return (
-    <Link
-      href={`/products/${product.category}/${product.slug}`}
-      className="group relative flex min-h-[340px] flex-col overflow-hidden border border-rule bg-white p-6"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={product.image}
-        alt=""
-        className="mx-auto h-40 w-auto object-contain transition duration-500 group-hover:scale-105"
-      />
-      <p className="mt-4 text-[13px] text-brass-bright font-medium">
-        {cat?.short} · {product.code}
-      </p>
-      <h3 className="mt-2 font-display text-xl text-ink font-semibold">{product.name}</h3>
-      <p className="mt-2 line-clamp-2 text-sm text-night/70">{product.summary}</p>
-      <p className="mt-auto pt-4 text-[13px] text-night font-medium">
-        {product.pressureLabel}
-      </p>
-    </Link>
   );
 }

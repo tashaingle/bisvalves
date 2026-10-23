@@ -17,7 +17,6 @@ export default function QualityPage() {
         kicker="Quality"
         title="Quality and certification"
         lede="Every BiS valve is pressure tested before dispatch. Our quality system is approved to ISO 9001, with ATEX, PED and SIL approvals on the relevant product ranges."
-        image="/images/testing.jpg"
       />
       <section className="bg-charcoal py-20">
         <div className="mx-auto max-w-[1320px] px-5 md:px-10">

@@ -7,7 +7,10 @@ import {
   products,
   relatedProducts,
 } from "@/lib/products";
-import { EnquiryForm } from "@/components/EnquiryForm";
+import Image from "next/image";
+import { Arrow } from "@/components/Arrow";
+import { FinalCTA } from "@/components/FinalCTA";
+import { site } from "@/lib/site";
 import { datasheetFor, generalDocuments, rangeOverview } from "@/lib/resources";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
@@ -39,109 +42,126 @@ export default async function ProductPage({ params }: Props) {
     overview && { title: `${cat?.name ?? "Range"} overview`, href: overview.href, sizeKb: overview.sizeKb },
     ...generalDocuments.map((d) => ({ title: d.title, href: d.href, sizeKb: d.sizeKb })),
   ].filter((d) => !!d);
+  const enquiryHref = `mailto:${site.email}?subject=${encodeURIComponent(
+    `Enquiry: ${product.code} ${product.name}`,
+  )}`;
 
   return (
-    <article className="bg-white pt-24">
-      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-12 md:px-10 lg:grid-cols-12">
+    <article className="bg-white pt-[76px]">
+      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 pt-10 pb-16 md:px-10 md:pt-14 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-6">
-          <p className="text-[13px] text-brass-bright font-medium">
-            <Link href="/products" className="hover:text-night">
+          <nav aria-label="Breadcrumb" className="text-[14px] text-night/55">
+            <Link href="/products" className="hover:text-brass-bright">
               Products
-            </Link>{" "}
-            /{" "}
-            <Link href={`/products/${cat?.slug}`} className="hover:text-night">
+            </Link>
+            <span className="mx-2">/</span>
+            <Link href={`/products/${cat?.slug}`} className="hover:text-brass-bright">
               {cat?.name}
             </Link>
-          </p>
-          <div className="relative mt-6 overflow-hidden border border-rule bg-panel">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          </nav>
+          <div className="relative mt-6 aspect-square overflow-hidden rounded-2xl bg-[#1c1d1c]">
+            <Image
               src={product.image}
               alt={`${product.name} ${product.code}`}
-              className="relative mx-auto w-[80%] py-12"
+              fill
+              preload
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="object-cover"
             />
           </div>
         </div>
-        <div className="lg:col-span-6">
-          <p className="text-[13px] text-brass-bright font-medium">
-            {product.code}
-          </p>
+
+        <div className="lg:col-span-6 lg:pt-10">
+          <p className="label tabular-nums">{product.code}</p>
           <h1 className="mt-3 font-display text-4xl leading-[1.05] font-semibold text-ink md:text-5xl">
             {product.name}
           </h1>
-          <p className="mt-5 text-lg text-night/70">{product.summary}</p>
-          <dl className="mt-8 grid grid-cols-2 gap-px bg-black/10">
+          <p className="mt-5 text-lg leading-relaxed text-night/70">{product.summary}</p>
+
+          <dl className="mt-8 grid grid-cols-2 border-t border-night">
             {product.specs.map((s) => (
-              <div key={s.label} className="bg-white p-4">
-                <dt className="text-[13px] text-brass-bright font-medium">
-                  {s.label}
-                </dt>
-                <dd className="mt-1 text-night">{s.value}</dd>
+              <div key={s.label} className="border-b border-rule py-4 pr-4">
+                <dt className="text-[13px] text-night/55">{s.label}</dt>
+                <dd className="mt-1 font-medium text-night tabular-nums">{s.value}</dd>
               </div>
             ))}
           </dl>
+
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="#enquire"
-              className="btn btn-primary"
-            >
-              Enquire
-            </Link>
-            {datasheet ? (
+            <a href={enquiryHref} className="btn btn-primary">
+              Email us about this valve
+              <Arrow />
+            </a>
+            {datasheet && (
               <a href={datasheet.href} className="btn btn-secondary">
                 Download datasheet
               </a>
-            ) : (
-              <Link href="/technical-resources" className="btn btn-secondary">
-                Downloads
-              </Link>
             )}
           </div>
+          <p className="mt-4 text-[14px] text-night/55">
+            Or call{" "}
+            <a href={site.phoneHref} className="text-night tabular-nums hover:text-brass-bright">
+              {site.phone}
+            </a>
+          </p>
         </div>
       </div>
 
-      <section className="border-t border-rule bg-charcoal">
-        <div className="mx-auto grid max-w-[1320px] gap-12 px-5 py-16 md:px-10 lg:grid-cols-12">
+      <section className="border-t border-rule">
+        <div className="mx-auto grid max-w-[1320px] gap-12 px-5 py-16 md:px-10 md:py-20 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
-            <h2 className="font-display text-2xl text-ink font-semibold">Engineering notes</h2>
-            <p className="mt-4 leading-relaxed text-night/70">{product.description}</p>
-            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Applications</h3>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {product.applications.map((a) => (
-                <li key={a} className="border-l border-brass pl-3 text-night/80">
-                  {a}
-                </li>
-              ))}
-            </ul>
-            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Materials</h3>
-            <p className="mt-3 text-night/70">{product.materials.join(" · ")}</p>
-            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Features</h3>
-            <ul className="mt-4 space-y-2">
-              {product.features.map((f) => (
-                <li key={f} className="text-sm text-night tabular-nums">
-                  {f}
-                </li>
-              ))}
-            </ul>
+            <h2 className="font-display text-3xl font-semibold text-ink">Engineering notes</h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-night/70">{product.description}</p>
+
+            <div className="mt-10 grid gap-10 sm:grid-cols-2">
+              <div>
+                <h3 className="font-display text-xl font-semibold text-ink">Applications</h3>
+                <ul className="mt-3 space-y-2 text-night/75">
+                  {product.applications.map((a) => (
+                    <li key={a} className="flex gap-3">
+                      <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-brass" />
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-ink">Features</h3>
+                <ul className="mt-3 space-y-2 text-night/75">
+                  {product.features.map((f) => (
+                    <li key={f} className="flex gap-3">
+                      <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-brass" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="mt-10 font-display text-xl font-semibold text-ink">Materials</h3>
+            <p className="mt-3 text-night/75">{product.materials.join(" · ")}</p>
           </div>
+
           <aside className="lg:col-span-5">
-            <div className="border border-rule bg-white p-6">
-              <h3 className="font-display text-xl text-ink font-semibold">Downloads</h3>
-              <p className="mt-3 text-sm text-night/70">
+            <div className="rounded-2xl border border-rule p-6 md:p-8">
+              <h2 className="font-display text-xl font-semibold text-ink">Downloads</h2>
+              <p className="mt-2 text-[15px] text-night/65">
                 {datasheet
                   ? "The datasheet includes dimensions, performance and ordering codes."
                   : "A datasheet for this model is available on request."}{" "}
-                Contact engineering for CAD and application-specific drawings.
+                Ask us for CAD and application-specific drawings.
               </p>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 border-t border-rule">
                 {downloads.map((d) => (
-                  <li key={d.href}>
+                  <li key={d.href} className="border-b border-rule">
                     <a
                       href={d.href}
-                      className="flex items-center justify-between gap-3 border-b border-rule pb-3 text-[13px] text-brass-bright hover:text-brass-bright font-medium"
+                      className="flex items-center justify-between gap-3 py-3 text-[15px] font-medium text-brass-bright hover:underline"
                     >
                       {d.title}
-                      <span className="shrink-0 text-night/50">PDF, {d.sizeKb} KB</span>
+                      <span className="shrink-0 text-[13px] font-normal text-night/50">
+                        PDF, {d.sizeKb} KB
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -152,19 +172,21 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {related.length > 0 && (
-        <section className="border-t border-rule bg-white">
-          <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-10">
-            <h2 className="font-display text-2xl text-ink font-semibold">Related products</h2>
+        <section className="border-t border-rule">
+          <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-10 md:py-20">
+            <h2 className="font-display text-3xl font-semibold text-ink">Related products</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   href={`/products/${r.category}/${r.slug}`}
-                  className="border border-rule bg-white p-6 hover:border-night/40"
+                  className="group rounded-xl border border-rule p-6 transition-colors hover:border-brass-bright"
                 >
-                  <p className="text-[13px] text-brass-bright font-medium">{r.code}</p>
-                  <p className="mt-2 font-display text-xl text-ink font-semibold">{r.name}</p>
-                  <p className="mt-2 text-sm text-night/70">{r.pressureLabel}</p>
+                  <p className="label tabular-nums">{r.code}</p>
+                  <p className="mt-2 font-display text-xl font-semibold text-ink group-hover:text-brass-bright">
+                    {r.name}
+                  </p>
+                  <p className="mt-2 text-[15px] text-night/65 tabular-nums">{r.pressureLabel}</p>
                 </Link>
               ))}
             </div>
@@ -172,16 +194,7 @@ export default async function ProductPage({ params }: Props) {
         </section>
       )}
 
-      <section id="enquire" className="border-t border-rule bg-charcoal">
-        <div className="mx-auto max-w-[800px] px-5 py-16 md:px-10">
-          <h2 className="font-display text-3xl text-ink font-semibold">Enquire on {product.code}</h2>
-          <p className="mt-3 mb-8 text-night/70">
-            Send pressures, fluid, temperature and envelope. Engineering will
-            confirm suitability or propose a variant.
-          </p>
-          <EnquiryForm product={`${product.name} ${product.code}`} />
-        </div>
-      </section>
+      <FinalCTA />
     </article>
   );
 }

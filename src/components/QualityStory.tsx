@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { certifications } from "@/lib/resources";
 import { Arrow } from "./Arrow";
@@ -6,10 +7,12 @@ export function QualityStory() {
   return (
     <section className="relative overflow-hidden bg-forest text-white">
       {/* The BNV10FC section drawing, inverted to white line-work on green. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/images/bis/bnv10fc-section.jpg"
         alt=""
+        width={690}
+        height={1083}
+        sizes="400px"
         className="pointer-events-none absolute -bottom-40 left-[-80px] hidden h-[620px] w-auto opacity-40 mix-blend-screen invert lg:block"
       />
       <div className="relative mx-auto grid max-w-[1320px] gap-12 px-5 py-20 md:px-10 md:py-28 lg:grid-cols-12">

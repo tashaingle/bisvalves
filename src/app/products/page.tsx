@@ -16,7 +16,7 @@ export default function ProductsPage() {
         title="Product catalogue"
         lede="Filter by valve type, industry, pressure and material. If you can’t find what you need, most models can be adapted."
       />
-      <section className="bg-charcoal py-16 md:py-24">
+      <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-[1320px] px-5 md:px-10">
           <ProductCatalogue />
         </div>

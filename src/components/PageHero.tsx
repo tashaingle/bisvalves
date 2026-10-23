@@ -6,7 +6,6 @@ export function PageHero({
   kicker: string;
   title: string;
   lede?: string;
-  image?: string;
 }) {
   return (
     <section className="border-b border-rule bg-white pt-32 pb-14 md:pt-40 md:pb-20">

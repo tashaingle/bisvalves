@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { categories } from "@/lib/products";
 import { Arrow } from "./Arrow";
@@ -31,11 +32,12 @@ export function ProductExplore() {
                 href={`/products/${cat.slug}`}
                 className="group relative block aspect-[4/5] overflow-hidden rounded-xl bg-[#1c1d1c]"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={cat.image}
                   alt=""
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                  fill
+                  sizes="(min-width: 1024px) 310px, 50vw"
+                  className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pt-16 pb-4 md:px-5 md:pb-5">
                   <p className="font-display text-lg leading-tight font-semibold text-white md:text-xl">

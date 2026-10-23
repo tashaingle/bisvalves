@@ -18,7 +18,7 @@ export function FinalCTA() {
         </div>
         <div className="lg:col-span-4 lg:col-start-9">
           <Link href="/contact" className="btn btn-primary h-14 px-7 text-base">
-            Send an enquiry
+            Get in touch
             <Arrow />
           </Link>
           <div className="mt-6 space-y-1 text-night/70">

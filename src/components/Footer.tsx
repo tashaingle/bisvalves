@@ -75,6 +75,14 @@ export function Footer() {
           >
             {site.email}
           </a>
+          <dl className="mt-4 text-[14px] text-night/65">
+            {site.hours.map((h) => (
+              <div key={h.days} className="flex gap-2">
+                <dt>{h.days}:</dt>
+                <dd className="tabular-nums">{h.time}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
       <div className="border-t border-rule">
