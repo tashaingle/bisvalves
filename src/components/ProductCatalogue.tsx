@@ -42,9 +42,9 @@ export function ProductCatalogue() {
   return (
     <div className="grid gap-10 lg:grid-cols-12">
       <aside className="lg:col-span-3">
-        <div className="sticky top-24 space-y-8 border border-black/10 bg-white p-6">
+        <div className="sticky top-24 space-y-8 border border-rule bg-white p-6">
           <label className="block">
-            <span className="font-mono text-[10px] tracking-[0.24em] text-brass uppercase">
+            <span className="text-[13px] text-brass-bright font-medium">
               Search
             </span>
             <input
@@ -90,7 +90,7 @@ export function ProductCatalogue() {
               ...allMaterials.map((m) => ({ id: m, label: m })),
             ]}
           />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-night/60 uppercase">
+          <p className="text-[13px] text-night/60 font-medium">
             {filtered.length} products
           </p>
         </div>
@@ -117,7 +117,7 @@ function Filter({
 }) {
   return (
     <label className="block">
-      <span className="font-mono text-[10px] tracking-[0.24em] text-brass uppercase">
+      <span className="text-[13px] text-brass-bright font-medium">
         {label}
       </span>
       <select
@@ -140,7 +140,7 @@ function ProductTile({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.category}/${product.slug}`}
-      className="group relative flex min-h-[340px] flex-col overflow-hidden border border-black/10 bg-white p-6"
+      className="group relative flex min-h-[340px] flex-col overflow-hidden border border-rule bg-white p-6"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -148,14 +148,13 @@ function ProductTile({ product }: { product: Product }) {
         alt=""
         className="mx-auto h-40 w-auto object-contain transition duration-500 group-hover:scale-105"
       />
-      <p className="mt-4 font-mono text-[10px] tracking-[0.22em] text-brass uppercase">
+      <p className="mt-4 text-[13px] text-brass-bright font-medium">
         {cat?.short} · {product.code}
       </p>
-      <h3 className="mt-2 font-display text-2xl text-night uppercase">{product.name}</h3>
+      <h3 className="mt-2 font-display text-xl text-ink font-semibold">{product.name}</h3>
       <p className="mt-2 line-clamp-2 text-sm text-night/70">{product.summary}</p>
-      <p className="mt-auto pt-4 font-mono text-[11px] tracking-[0.16em] text-night uppercase">
+      <p className="mt-auto pt-4 text-[13px] text-night font-medium">
         {product.pressureLabel}
-        <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
       </p>
     </Link>
   );

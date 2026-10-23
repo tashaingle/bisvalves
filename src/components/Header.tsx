@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -18,74 +18,86 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  // Close the mobile menu on navigation.
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
+
+  const links = nav.filter((item) => item.href !== "/contact");
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow ${
-        scrolled || open ? "border-b border-black/8 shadow-sm" : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 bg-white transition-shadow ${
+        scrolled || open ? "shadow-[0_1px_0_var(--rule)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-[80px] max-w-[1440px] items-center justify-between px-5 md:px-10">
-        <Logo />
-        <nav className="hidden items-center gap-8 lg:flex">
-          {nav.map((item) => {
+      <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between gap-8 px-5 md:px-10">
+        <Logo size="sm" />
+        <nav className="hidden items-center gap-7 lg:flex">
+          {links.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-[11px] tracking-[0.22em] uppercase transition-colors ${
-                  active ? "text-brass" : "text-night/70 hover:text-night"
+                className={`relative py-2 text-[15px] transition-colors ${
+                  active ? "text-night" : "text-night/65 hover:text-night"
                 }`}
               >
                 {item.label}
+                {active && (
+                  <span className="absolute inset-x-0 -bottom-[17px] h-[2px] bg-brass" />
+                )}
               </Link>
             );
           })}
         </nav>
-        <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
-            className="hidden border border-brass bg-brass px-4 py-2 font-mono text-[11px] tracking-[0.22em] text-white uppercase transition-colors hover:bg-brass-bright sm:inline-flex"
+        <div className="flex items-center gap-5">
+          <a
+            href={site.phoneHref}
+            className="hidden text-[15px] text-night/65 tabular-nums hover:text-night xl:block"
           >
-            Talk to an Engineer
+            {site.phone}
+          </a>
+          <Link href="/contact" className="btn btn-primary hidden h-10 px-4 sm:inline-flex">
+            Contact us
           </Link>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center border border-black/10 lg:hidden"
-            aria-label="Menu"
+            className="grid h-10 w-10 place-items-center lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="flex w-4 flex-col gap-1.5">
-              <span className={`h-px bg-night transition ${open ? "translate-y-[4px] rotate-45" : ""}`} />
-              <span className={`h-px bg-night transition ${open ? "opacity-0" : ""}`} />
-              <span className={`h-px bg-night transition ${open ? "-translate-y-[4px] -rotate-45" : ""}`} />
+            <span className="flex w-5 flex-col gap-[5px]">
+              <span className={`h-[1.5px] bg-night transition ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
+              <span className={`h-[1.5px] bg-night transition ${open ? "opacity-0" : ""}`} />
+              <span className={`h-[1.5px] bg-night transition ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
             </span>
           </button>
         </div>
       </div>
       {open && (
-        <div className="border-t border-black/5 bg-white px-5 py-6 lg:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-rule bg-white px-5 pt-2 pb-8 lg:hidden">
+          <div className="flex flex-col">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-display text-3xl tracking-[0.08em] text-night uppercase"
+                className="border-b border-rule py-4 font-display text-2xl font-medium text-night"
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="mt-4 inline-flex w-fit border border-brass bg-brass px-4 py-3 font-mono text-[11px] tracking-[0.22em] text-white uppercase"
-            >
-              Talk to an Engineer
-            </Link>
+            <a href={site.phoneHref} className="mt-6 text-night/70 tabular-nums">
+              {site.phone}
+            </a>
+            <a href={`mailto:${site.email}`} className="mt-1 text-night/70">
+              {site.email}
+            </a>
           </div>
         </div>
       )}

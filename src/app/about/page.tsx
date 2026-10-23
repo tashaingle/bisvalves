@@ -14,15 +14,15 @@ export default function AboutPage() {
     <>
       <PageHero
         kicker="About BiS"
-        title="A specialist British manufacturer."
-        lede="Originally Bournemouth Industrial Supplies. Today, BiS Valves Ltd, still engineering in Dorset, still solving problems the catalogue cannot."
+        title="A British valve manufacturer, in Dorset since 1971"
+        lede="BiS began as Bournemouth Industrial Supplies. Today BiS Valves Ltd designs, machines and tests stainless steel valves at two sites near Wimborne."
         image="/images/specialist.jpg"
       />
       <Heritage />
       <section className="bg-charcoal py-24">
-        <div className="mx-auto grid max-w-[1440px] gap-16 px-5 md:grid-cols-12 md:px-10">
+        <div className="mx-auto grid max-w-[1320px] gap-16 px-5 md:grid-cols-12 md:px-10">
           <div className="md:col-span-6">
-            <h2 className="font-display text-4xl text-night uppercase">Foundation</h2>
+            <h2 className="font-display text-3xl text-ink font-semibold">Foundation</h2>
             <p className="mt-5 leading-relaxed text-night/70">
               BiS Valves Ltd was founded in 1971 as Bournemouth Industrial
               Supplies. The founder, Ralph Burgas, led the company until 1995.
@@ -31,13 +31,13 @@ export default function AboutPage() {
               led the business.
             </p>
             <p className="mt-5 leading-relaxed text-night/70">
-              The name changed to BiS Valves Ltd in 1998. The work did not:
-              small-bore stainless steel pressure and flow control for high
-              pressure liquid and gas.
+              The company became BiS Valves Ltd in 1998. The focus has stayed the
+              same: small-bore stainless steel pressure and flow control for
+              high-pressure liquid and gas.
             </p>
           </div>
           <div className="md:col-span-6">
-            <h2 className="font-display text-4xl text-night uppercase">How we work</h2>
+            <h2 className="font-display text-3xl text-ink font-semibold">How we work</h2>
             <p className="mt-5 leading-relaxed text-night/70">
               ISO 9001 management system. Integrated sales, order processing and
               inventory. Strategic stocks of key components and a flexible

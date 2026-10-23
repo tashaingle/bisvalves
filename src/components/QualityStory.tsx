@@ -1,43 +1,43 @@
 import Link from "next/link";
 import { certifications } from "@/lib/resources";
-import { Reveal } from "./Reveal";
+import { Arrow } from "./Arrow";
 
 export function QualityStory() {
   return (
-    <section className="bg-charcoal py-24 md:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
-        <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            05 · Quality as engineering
-          </p>
-          <h2 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
-            Assurance is not a logo strip.
+    <section className="relative overflow-hidden bg-forest text-white">
+      {/* The BNV10FC section drawing, inverted to white line-work on green. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/bis/bnv10fc-section.jpg"
+        alt=""
+        className="pointer-events-none absolute -bottom-40 left-[-80px] hidden h-[620px] w-auto opacity-40 mix-blend-screen invert lg:block"
+      />
+      <div className="relative mx-auto grid max-w-[1320px] gap-12 px-5 py-20 md:px-10 md:py-28 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <p className="text-[14px] font-medium text-brass">Quality</p>
+          <h2 className="mt-3 font-display text-4xl leading-[1.05] font-semibold md:text-5xl">
+            Tested before it leaves us
           </h2>
-          <p className="mt-6 max-w-xl text-night/70">
-            Every valve is proof-tested, typically to 1.5× rated working pressure,
-            then function and leakage tested on oil, water glycol, demineralised
-            water or&nbsp;nitrogen.
+          <p className="mt-5 max-w-sm text-white/70">
+            Every valve is proof tested, typically to 1.5× its rated working
+            pressure, then function and leak tested on oil, water glycol,
+            demineralised water or nitrogen.
           </p>
-        </Reveal>
-        <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
-          {certifications.map((c) => (
-            <article key={c.code} className="bg-white p-7">
-              <p className="font-mono text-[11px] tracking-[0.2em] text-brass uppercase">
-                {c.code}
-              </p>
-              <h3 className="mt-4 font-display text-2xl text-night uppercase">
-                {c.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-night/70">{c.body}</p>
-            </article>
-          ))}
+          <Link href="/quality" className="link-arrow mt-6 text-brass">
+            Quality and certification
+            <Arrow />
+          </Link>
         </div>
-        <Link
-          href="/quality"
-          className="mt-8 inline-flex font-mono text-[11px] tracking-[0.24em] text-brass uppercase hover:text-brass-bright"
-        >
-          Quality &amp; certification →
-        </Link>
+
+        <ul className="grid gap-px self-start overflow-hidden bg-white/12 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+          {certifications.map((c) => (
+            <li key={c.code} className="bg-forest p-6 md:p-8">
+              <p className="text-[14px] text-brass tabular-nums">{c.code}</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold">{c.title}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-white/60">{c.body}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

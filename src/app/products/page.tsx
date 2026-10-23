@@ -13,11 +13,11 @@ export default function ProductsPage() {
     <>
       <PageHero
         kicker="Catalogue"
-        title="The range."
-        lede="Filter by type, industry, pressure and material. Every model is a UK-engineered stainless steel control element, or the start of a bespoke design."
+        title="Product catalogue"
+        lede="Filter by valve type, industry, pressure and material. If you can’t find what you need, most models can be adapted."
       />
       <section className="bg-charcoal py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-10">
+        <div className="mx-auto max-w-[1320px] px-5 md:px-10">
           <ProductCatalogue />
         </div>
       </section>

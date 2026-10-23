@@ -1,68 +1,56 @@
-import { CountUp, Reveal } from "./Reveal";
+import Link from "next/link";
+import { Arrow } from "./Arrow";
 
-const figures = [
-  { value: 50, suffix: "+", label: "Years experience", grouped: true },
-  { value: 1971, suffix: "", label: "Founded in Bournemouth", grouped: false },
-  { value: 20000, suffix: "", label: "PSI in-house test", grouped: true },
-  { value: 316, suffix: "", label: "Stainless as standard", grouped: false },
+const stages = [
+  { title: "Design", copy: "Our own hydraulics engineers, from small modifications to new valves and manifolds." },
+  { title: "Machining", copy: "CNC mill-turn in stainless, super duplex, Monel, Inconel, Hastelloy and titanium." },
+  { title: "Assembly", copy: "Standard, prototype and batch builds from strategic stocks of common parts." },
+  { title: "Testing", copy: "Hydraulic proof testing to 1,379 bar, plus hyperbaric and environmental tests." },
 ];
 
 export function Heritage() {
   return (
-    <section className="relative overflow-hidden bg-charcoal py-24 md:py-32">
-      <div className="relative mx-auto max-w-[1440px] px-5 md:px-10">
-        <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            03 · Engineering heritage
-          </p>
-        </Reveal>
+    <section className="grid bg-white lg:grid-cols-2">
+      <div className="flex items-center justify-center bg-white px-6 pt-12 lg:px-12 lg:py-16">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/bis/3bc25m.webp"
+          alt="CAD render of the BiS 3BC25M solenoid valve"
+          width={1400}
+          height={1194}
+          className="h-auto w-full max-w-[560px] drop-shadow-[0_24px_30px_rgba(15,58,30,0.14)]"
+        />
+      </div>
 
-        <div className="mt-4 grid items-stretch gap-8 md:grid-cols-12">
-          <div className="flex flex-col justify-center md:col-span-5">
-            <h2 className="font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
-              50+ years of
-              <br />
-              engineering
-              <br />
-              experience.
-            </h2>
-            <p className="mt-8 text-lg leading-relaxed text-night/70">
-              Founded in 1971 as Bournemouth Industrial Supplies, BiS is a
-              specialist UK manufacturer solving demanding flow-control problems
-              for topside, subsea and downhole service.
-            </p>
-            <p className="mt-5 text-night/70">
-              Not a catalogue house. A Dorset engineering company that machines,
-              assembles and tests the valves it designs, in stainless, super
-              duplex, Hastelloy and titanium.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-px bg-black/10 md:col-span-7">
-            {figures.map((f) => (
-              <div key={f.label} className="flex flex-col justify-center bg-white p-6 md:p-8">
-                <p className="font-display text-5xl text-night md:text-6xl">
-                  <CountUp value={f.value} suffix={f.suffix} grouped={f.grouped} />
-                </p>
-                <p className="mt-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase">
-                  {f.label}
-                </p>
+      <div className="px-5 py-16 md:px-10 md:py-20 lg:py-20 lg:pr-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))] lg:pl-16 xl:pl-20">
+        <p className="label">Since 1971</p>
+        <h2 className="mt-3 font-display text-4xl leading-[1.05] font-semibold text-ink md:text-5xl">
+          Designed, machined and tested in Dorset
+        </h2>
+        <p className="mt-5 max-w-lg text-night/70">
+          BiS started as Bournemouth Industrial Supplies. Every stage now
+          happens across our two sites near Wimborne, so one team is responsible
+          for a valve from the first drawing to the test certificate.
+        </p>
+
+        <ol className="mt-10 grid max-w-xl gap-x-8 sm:grid-cols-2">
+          {stages.map((s, i) => (
+            <li key={s.title} className="grid grid-cols-[2rem_1fr] border-t border-rule py-4">
+              <span className="pt-0.5 text-[14px] text-brass-bright tabular-nums">
+                0{i + 1}
+              </span>
+              <div>
+                <p className="font-semibold text-ink">{s.title}</p>
+                <p className="mt-0.5 text-[15px] text-night/60">{s.copy}</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-px bg-black/10 md:grid-cols-4">
-          {[
-            "UK engineered",
-            "High-pressure specialists",
-            "Bespoke solutions",
-            "Global distribution",
-          ].map((item) => (
-            <div key={item} className="bg-white px-6 py-5 font-display text-2xl tracking-wide text-night uppercase">
-              {item}
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
+
+        <Link href="/capabilities" className="link-arrow mt-6">
+          How we work
+          <Arrow />
+        </Link>
       </div>
     </section>
   );

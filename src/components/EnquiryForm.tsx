@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
+import { Arrow } from "./Arrow";
 
 export function EnquiryForm({ product }: { product?: string }) {
   const [sent, setSent] = useState(false);
@@ -35,7 +36,7 @@ export function EnquiryForm({ product }: { product?: string }) {
       </div>
       {product && <input type="hidden" name="product" value={product} />}
       <label className="block">
-        <span className="font-mono text-[10px] tracking-[0.24em] text-brass uppercase">
+        <span className="text-[13px] text-brass-bright font-medium">
           Requirements
         </span>
         <textarea
@@ -46,10 +47,10 @@ export function EnquiryForm({ product }: { product?: string }) {
       </label>
       <button
         type="submit"
-        className="inline-flex w-fit items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-white uppercase hover:bg-brass-bright"
+        className="btn btn-primary w-fit"
       >
         {sent ? "Opening mail client" : "Talk to an engineer"}
-        <span aria-hidden>→</span>
+        <Arrow />
       </button>
       {sent && (
         <p className="text-sm text-night/70">
@@ -79,7 +80,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="font-mono text-[10px] tracking-[0.24em] text-brass uppercase">
+      <span className="text-[13px] text-brass-bright font-medium">
         {label}
       </span>
       <input

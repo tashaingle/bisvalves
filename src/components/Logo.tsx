@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const sizes = {
-  sm: "h-10",
+  sm: "h-12",
   md: "h-14",
   lg: "h-20",
 } as const;

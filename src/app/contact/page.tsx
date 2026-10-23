@@ -14,18 +14,18 @@ export default function ContactPage() {
     <>
       <PageHero
         kicker="Contact"
-        title="Talk to an engineer."
-        lede="Bring fluid, pressure, temperature, flow, ambient conditions and envelope. We will tell you whether a standard valve, a variant, or a clean-sheet design is the right path."
+        title="Talk to an engineer"
+        lede="Send us the fluid, pressure, temperature, flow and space available. We will tell you whether a standard valve, a modified one or a new design is the right fit."
       />
       <section className="bg-charcoal py-16 md:py-24">
-        <div className="mx-auto grid max-w-[1440px] gap-16 px-5 md:grid-cols-12 md:px-10">
+        <div className="mx-auto grid max-w-[1320px] gap-16 px-5 md:grid-cols-12 md:px-10">
           <div className="md:col-span-7">
             <EnquiryForm />
           </div>
           <aside className="md:col-span-5 space-y-10">
             {site.offices.map((o) => (
-              <div key={o.name} className="border border-black/10 bg-white p-6">
-                <p className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase">
+              <div key={o.name} className="border border-rule bg-white p-6">
+                <p className="text-[13px] text-brass-bright font-medium">
                   {o.name}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-night/70">
@@ -37,14 +37,14 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={o.map}
-                  className="mt-4 inline-block font-mono text-[11px] tracking-[0.2em] text-night uppercase hover:text-brass"
+                  className="mt-4 inline-block text-[13px] text-night hover:text-brass-bright font-medium"
                 >
-                  Directions →
+                  Directions
                 </a>
               </div>
             ))}
-            <div className="border border-black/10 bg-white p-6">
-              <p className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase">
+            <div className="border border-rule bg-white p-6">
+              <p className="text-[13px] text-brass-bright font-medium">
                 Direct
               </p>
               <a href={site.phoneHref} className="mt-4 block text-night hover:text-brass">

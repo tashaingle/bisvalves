@@ -42,3 +42,14 @@ next-env.d.ts
 
 # local video upscale workspace
 .tmp-upscale
+
+# BiS working files: catalogue sources, draft PDFs, images and notes.
+# The site only needs public/datasheets, which scripts/sync-datasheets.mjs builds.
+/OneDrive_*/
+/PDFS NEW/
+/New Images/
+/Screenshots/
+/tmp/
+/email-to-bis.txt
+/scripts/*
+!/scripts/sync-datasheets.mjs

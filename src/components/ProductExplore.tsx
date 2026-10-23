@@ -1,71 +1,56 @@
 import Link from "next/link";
 import { categories } from "@/lib/products";
-import { Reveal } from "./Reveal";
+import { Arrow } from "./Arrow";
 
 export function ProductExplore() {
   const featured = categories.filter((c) => c.featured);
 
   return (
-    <section className="relative bg-charcoal py-24 md:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
-        <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            01 · Product discovery
-          </p>
-          <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)] leading-none font-semibold tracking-tight text-night uppercase whitespace-nowrap">
-              Explore our valves.
+    <section className="bg-white pb-20 md:pb-28">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
+        <div className="flex flex-col justify-between gap-6 border-t border-rule pt-16 md:flex-row md:items-end md:pt-24">
+          <div>
+            <h2 className="font-display text-4xl leading-[1.05] font-semibold text-ink md:text-5xl">
+              Product ranges
             </h2>
-            <p className="max-w-sm text-night/70">
-              Small-bore stainless steel pressure and flow control. Standard
-              ranges, cartridge and manifold constructions, and fully bespoke
-              engineering.
+            <p className="mt-4 max-w-md text-night/70">
+              Standard ranges in cartridge, in-line and manifold constructions.
+              Most can be adapted for material, seals, porting or pressure.
             </p>
           </div>
-        </Reveal>
+          <Link href="/products" className="link-arrow shrink-0">
+            Search the full catalogue
+            <Arrow />
+          </Link>
+        </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((cat, i) => (
-            <Link
-              key={cat.slug}
-              href={`/products/${cat.slug}`}
-              className="group flex h-full flex-col border border-black/10 bg-white"
-            >
-              <div className="relative flex h-48 items-center justify-center bg-[#f6f6f4] px-6 py-5">
+        <ul className="mt-12 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
+          {featured.map((cat) => (
+            <li key={cat.slug}>
+              <Link
+                href={`/products/${cat.slug}`}
+                className="group relative block aspect-[4/5] overflow-hidden rounded-xl bg-[#1c1d1c]"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={cat.image}
                   alt=""
-                  className="max-h-36 w-auto object-contain transition duration-500 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
                 />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <p className="font-mono text-[10px] tracking-[0.28em] text-brass uppercase">
-                  {String(i + 1).padStart(2, "0")} · {cat.pressure}
-                </p>
-                <h3 className="mt-2 font-display text-2xl tracking-tight text-night uppercase">
-                  {cat.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-night/70">{cat.hover}</p>
-                <span className="mt-auto inline-flex items-center gap-3 pt-6 font-mono text-[11px] tracking-[0.22em] text-night uppercase">
-                  View range
-                  <span className="transition-transform duration-500 group-hover:translate-x-2">
-                    →
-                  </span>
-                </span>
-              </div>
-            </Link>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pt-16 pb-4 md:px-5 md:pb-5">
+                  <p className="font-display text-lg leading-tight font-semibold text-white md:text-xl">
+                    {cat.name}
+                  </p>
+                  <p className="mt-1 flex items-center justify-between text-[13px] text-white/65 tabular-nums md:text-[14px]">
+                    {cat.pressure}
+                    <Arrow className="text-brass opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 md:-translate-x-1" />
+                  </p>
+                </div>
+                <span className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-brass transition-transform duration-500 group-hover:scale-x-100" />
+              </Link>
+            </li>
           ))}
-        </div>
-
-        <div className="mt-8 flex justify-end">
-          <Link
-            href="/products"
-            className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase hover:text-brass-bright"
-          >
-            Full catalogue with filters →
-          </Link>
-        </div>
+        </ul>
       </div>
     </section>
   );

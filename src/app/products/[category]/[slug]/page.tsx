@@ -8,7 +8,7 @@ import {
   relatedProducts,
 } from "@/lib/products";
 import { EnquiryForm } from "@/components/EnquiryForm";
-import { resources } from "@/lib/resources";
+import { datasheetFor, generalDocuments, rangeOverview } from "@/lib/resources";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
@@ -32,18 +32,19 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
   const cat = categories.find((c) => c.slug === product.category);
   const related = relatedProducts(product);
-  const downloads = resources.filter(
-    (r) =>
-      r.type === "Brochure" ||
-      r.type === "Datasheet" ||
-      r.category.toLowerCase().includes(cat?.short.toLowerCase() ?? "zzz"),
-  ).slice(0, 4);
+  const datasheet = datasheetFor(product.code, product.category);
+  const overview = rangeOverview(product.category);
+  const downloads = [
+    datasheet && { title: `${datasheet.code} datasheet`, href: datasheet.href, sizeKb: datasheet.sizeKb },
+    overview && { title: `${cat?.name ?? "Range"} overview`, href: overview.href, sizeKb: overview.sizeKb },
+    ...generalDocuments.map((d) => ({ title: d.title, href: d.href, sizeKb: d.sizeKb })),
+  ].filter((d) => !!d);
 
   return (
     <article className="bg-white pt-24">
-      <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 md:px-10 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-12 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <p className="font-mono text-[11px] tracking-[0.28em] text-brass uppercase">
+          <p className="text-[13px] text-brass-bright font-medium">
             <Link href="/products" className="hover:text-night">
               Products
             </Link>{" "}
@@ -52,7 +53,7 @@ export default async function ProductPage({ params }: Props) {
               {cat?.name}
             </Link>
           </p>
-          <div className="relative mt-6 overflow-hidden border border-black/10 bg-[#f6f6f4]">
+          <div className="relative mt-6 overflow-hidden border border-rule bg-panel">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image}
@@ -62,17 +63,17 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
         <div className="lg:col-span-6">
-          <p className="font-mono text-[12px] tracking-[0.28em] text-brass uppercase">
+          <p className="text-[13px] text-brass-bright font-medium">
             {product.code}
           </p>
-          <h1 className="mt-3 font-display text-5xl leading-[0.95] font-semibold text-night uppercase md:text-6xl">
+          <h1 className="mt-3 font-display text-4xl leading-[1.05] font-semibold text-ink md:text-5xl">
             {product.name}
           </h1>
           <p className="mt-5 text-lg text-night/70">{product.summary}</p>
           <dl className="mt-8 grid grid-cols-2 gap-px bg-black/10">
             {product.specs.map((s) => (
               <div key={s.label} className="bg-white p-4">
-                <dt className="font-mono text-[10px] tracking-[0.2em] text-brass uppercase">
+                <dt className="text-[13px] text-brass-bright font-medium">
                   {s.label}
                 </dt>
                 <dd className="mt-1 text-night">{s.value}</dd>
@@ -82,26 +83,29 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="#enquire"
-              className="border border-brass bg-brass px-5 py-3 font-mono text-[11px] tracking-[0.22em] text-white uppercase"
+              className="btn btn-primary"
             >
               Enquire
             </Link>
-            <Link
-              href="/technical-resources"
-              className="border border-black/15 px-5 py-3 font-mono text-[11px] tracking-[0.22em] text-night uppercase hover:border-brass"
-            >
-              Downloads
-            </Link>
+            {datasheet ? (
+              <a href={datasheet.href} className="btn btn-secondary">
+                Download datasheet
+              </a>
+            ) : (
+              <Link href="/technical-resources" className="btn btn-secondary">
+                Downloads
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
-      <section className="border-t border-black/10 bg-charcoal">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:px-10 lg:grid-cols-12">
+      <section className="border-t border-rule bg-charcoal">
+        <div className="mx-auto grid max-w-[1320px] gap-12 px-5 py-16 md:px-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <h2 className="font-display text-3xl text-night uppercase">Engineering notes</h2>
+            <h2 className="font-display text-2xl text-ink font-semibold">Engineering notes</h2>
             <p className="mt-4 leading-relaxed text-night/70">{product.description}</p>
-            <h3 className="mt-10 font-display text-2xl text-night uppercase">Applications</h3>
+            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Applications</h3>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {product.applications.map((a) => (
                 <li key={a} className="border-l border-brass pl-3 text-night/80">
@@ -109,22 +113,24 @@ export default async function ProductPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-10 font-display text-2xl text-night uppercase">Materials</h3>
+            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Materials</h3>
             <p className="mt-3 text-night/70">{product.materials.join(" · ")}</p>
-            <h3 className="mt-10 font-display text-2xl text-night uppercase">Features</h3>
+            <h3 className="mt-10 font-display text-xl text-ink font-semibold">Features</h3>
             <ul className="mt-4 space-y-2">
               {product.features.map((f) => (
-                <li key={f} className="font-mono text-sm tracking-wide text-night">
+                <li key={f} className="text-sm text-night tabular-nums">
                   {f}
                 </li>
               ))}
             </ul>
           </div>
           <aside className="lg:col-span-5">
-            <div className="border border-black/10 bg-white p-6">
-              <h3 className="font-display text-2xl text-night uppercase">Technical drawings</h3>
+            <div className="border border-rule bg-white p-6">
+              <h3 className="font-display text-xl text-ink font-semibold">Downloads</h3>
               <p className="mt-3 text-sm text-night/70">
-                Dimensional datasheets are available from the literature library.
+                {datasheet
+                  ? "The datasheet includes dimensions, performance and ordering codes."
+                  : "A datasheet for this model is available on request."}{" "}
                 Contact engineering for CAD and application-specific drawings.
               </p>
               <ul className="mt-5 space-y-3">
@@ -132,10 +138,10 @@ export default async function ProductPage({ params }: Props) {
                   <li key={d.href}>
                     <a
                       href={d.href}
-                      className="flex items-center justify-between gap-3 border-b border-black/10 pb-3 font-mono text-[11px] tracking-[0.16em] text-brass uppercase hover:text-brass-bright"
+                      className="flex items-center justify-between gap-3 border-b border-rule pb-3 text-[13px] text-brass-bright hover:text-brass-bright font-medium"
                     >
                       {d.title}
-                      <span>PDF</span>
+                      <span className="shrink-0 text-night/50">PDF, {d.sizeKb} KB</span>
                     </a>
                   </li>
                 ))}
@@ -146,18 +152,18 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {related.length > 0 && (
-        <section className="border-t border-black/10 bg-white">
-          <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10">
-            <h2 className="font-display text-3xl text-night uppercase">Related products</h2>
+        <section className="border-t border-rule bg-white">
+          <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-10">
+            <h2 className="font-display text-2xl text-ink font-semibold">Related products</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   href={`/products/${r.category}/${r.slug}`}
-                  className="border border-black/10 bg-white p-6 hover:border-brass"
+                  className="border border-rule bg-white p-6 hover:border-night/40"
                 >
-                  <p className="font-mono text-[11px] text-brass">{r.code}</p>
-                  <p className="mt-2 font-display text-2xl text-night uppercase">{r.name}</p>
+                  <p className="text-[13px] text-brass-bright font-medium">{r.code}</p>
+                  <p className="mt-2 font-display text-xl text-ink font-semibold">{r.name}</p>
                   <p className="mt-2 text-sm text-night/70">{r.pressureLabel}</p>
                 </Link>
               ))}
@@ -166,9 +172,9 @@ export default async function ProductPage({ params }: Props) {
         </section>
       )}
 
-      <section id="enquire" className="border-t border-black/10 bg-charcoal">
+      <section id="enquire" className="border-t border-rule bg-charcoal">
         <div className="mx-auto max-w-[800px] px-5 py-16 md:px-10">
-          <h2 className="font-display text-4xl text-night uppercase">Enquire on {product.code}</h2>
+          <h2 className="font-display text-3xl text-ink font-semibold">Enquire on {product.code}</h2>
           <p className="mt-3 mb-8 text-night/70">
             Send pressures, fluid, temperature and envelope. Engineering will
             confirm suitability or propose a variant.

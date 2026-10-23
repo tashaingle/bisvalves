@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0e3a18;
-  --charcoal: #f4f8f3;
-  --steel: #ffffff;
-  --panel: #e7f2e6;
-  --line: rgba(54, 165, 66, 0.28);
-  --mist: #3f5346;
-  --paper: #ffffff;
-  --night: #14301c;
+  /* Brand green, sampled from the BiS logo. */
   --brass: #36a542;
-  --brass-bright: #4cbe58;
+  --brass-bright: #278030;
+  --brass-deep: #1f6f28;
+  /* Deep brand green. Product photos (shot on black) are blended onto it
+     with mix-blend-mode: lighten so their backdrop turns green. */
+  --forest: #0f3a1e;
+  --ink: #0f1a12;
+  --night: #16211a;
+  --mist: #5a665d;
+  --charcoal: #ffffff;
+  --steel: #ffffff;
+  --paper: #ffffff;
+  --panel: #f3f5f2;
+  --rule: #e2e6e1;
+  --line: rgba(22, 33, 26, 0.12);
 }
 
 @theme inline {
@@ -21,117 +27,122 @@
   --color-mist: var(--mist);
   --color-paper: var(--paper);
   --color-night: var(--night);
+  --color-forest: var(--forest);
+  --color-rule: var(--rule);
   --color-brass: var(--brass);
   --color-brass-bright: var(--brass-bright);
-  --font-sans: var(--font-geist-sans);
-  --font-display: var(--font-display);
-  --font-mono: var(--font-geist-mono);
+  --color-brass-deep: var(--brass-deep);
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-archivo);
+  --font-mono: var(--font-archivo);
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--charcoal);
-}
+  html {
+    scroll-behavior: smooth;
+    background: var(--paper);
+  }
 
-body {
-  background: var(--charcoal);
-  color: var(--night);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  overflow-x: hidden;
-}
+  body {
+    background: var(--paper);
+    color: var(--night);
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    overflow-x: hidden;
+    font-feature-settings: "ss01";
+  }
 
-::selection {
-  background: var(--brass);
-  color: var(--paper);
-}
+  ::selection {
+    background: var(--brass);
+    color: var(--paper);
+  }
 
-a {
-  color: inherit;
-}
-
-.font-display {
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
-}
-
-.hairline {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(54, 165, 66, 0.55),
-    transparent
-  );
-}
-
-.tech-frame {
-  position: relative;
-}
-
-.tech-frame::before,
-.tech-frame::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-color: var(--brass);
-  border-style: solid;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.tech-frame::before {
-  top: 0;
-  left: 0;
-  border-width: 1px 0 0 1px;
-}
-
-.tech-frame::after {
-  right: 0;
-  bottom: 0;
-  border-width: 0 1px 1px 0;
-}
-
-.draw-line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
+  a {
+    color: inherit;
   }
 }
 
-@keyframes float-y {
-  0%,
-  100% {
-    transform: translateY(0);
+@layer components {
+  /* Headlines: Archivo, slightly narrowed, sentence case. */
+  .font-display {
+    font-family: var(--font-archivo), "Arial Narrow", sans-serif;
+    font-variation-settings: "wdth" 88;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
   }
-  50% {
-    transform: translateY(-14px);
-  }
-}
 
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(1);
+  /* Small labels and spec figures. Tabular numerals so values line up. */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.4);
+
+  .label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--brass-bright);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: 48px;
+    padding: 0 1.4rem;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 999px;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--brass-bright);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--brass-deep);
+  }
+
+  .btn-secondary {
+    border: 1px solid rgba(22, 33, 26, 0.22);
+    color: var(--night);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--night);
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 500;
+    color: var(--brass-bright);
+  }
+
+  .link-arrow svg {
+    transition: transform 0.25s ease;
+  }
+
+  .link-arrow:hover svg,
+  .group:hover .link-arrow svg {
+    transform: translateX(3px);
   }
 }
 
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -139,44 +150,17 @@ a {
   }
 }
 
-@keyframes scan {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translateX(220%);
-  }
-}
-
-.float-y {
-  animation: float-y 7s ease-in-out infinite;
-}
-
 .reveal {
-  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.scan-sheen {
-  position: relative;
-  overflow: hidden;
-}
-
-.scan-sheen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 60%
-  );
-  transform: translateX(-120%);
-  pointer-events: none;
-}
-
-.scan-sheen:hover::after {
-  animation: scan 0.9s ease;
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .no-scrollbar::-webkit-scrollbar {

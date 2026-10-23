@@ -1,97 +1,83 @@
-"use client";
-
 import Link from "next/link";
-import { CountUp } from "./Reveal";
+import { Arrow } from "./Arrow";
 
-function ValveVideo({ className }: { className?: string }) {
+const figures = [
+  { value: "20,000 psi", caption: "Maximum working pressure" },
+  { value: "1,379 bar", caption: "Hydraulic proof testing in-house" },
+  { value: "316", caption: "Stainless steel as standard" },
+  { value: "1971", caption: "Founded in Bournemouth" },
+];
+
+function Figure({ value, caption }: { value: string; caption: string }) {
   return (
-    <video
-      className={className}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      poster="/images/hero-valve-poster.jpg"
-      aria-hidden
-    >
-      <source src="/videos/hero-valve.mp4" type="video/mp4" />
-    </video>
+    <div>
+      <p className="font-display text-3xl font-semibold text-ink tabular-nums md:text-4xl">
+        {value}
+      </p>
+      <p className="mt-1 text-[14px] text-night/60">{caption}</p>
+    </div>
   );
 }
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="pointer-events-none absolute inset-y-0 left-[28%] right-0 hidden lg:block">
-        <ValveVideo className="h-full w-full object-cover object-right" />
-        <div className="absolute inset-y-0 left-0 w-[38%] bg-gradient-to-r from-white via-white/75 to-transparent" />
-      </div>
-
-      <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col px-5 pt-28 pb-10 md:px-10 lg:h-[100svh] lg:pb-12">
-        <div className="flex w-full max-w-xl flex-col bg-white lg:grid lg:h-full lg:max-w-2xl lg:grid-rows-[auto_1fr_auto_1fr] lg:bg-transparent">
-          <p className="font-mono text-[11px] tracking-[0.32em] text-brass uppercase">
-            Est. 1971 · Dorset, England
-          </p>
-          <h1 className="mt-5 font-display text-[16vw] leading-[0.82] font-semibold tracking-[-0.03em] text-night uppercase sm:text-[12vw] lg:mt-0 lg:self-center lg:text-[8.4vw] xl:text-[118px]">
-            Precision
-            <br />
-            under
-            <br />
-            <span className="text-brass">pressure.</span>
-          </h1>
-
-          <div className="mt-8 lg:mt-0">
-            <p className="max-w-md text-lg leading-relaxed text-night/70 lg:max-w-lg lg:text-xl">
-              High-performance flow control solutions engineered for the world&apos;s
-              most demanding environments.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4 lg:mt-10">
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-3 border border-brass bg-brass px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-white uppercase transition-colors hover:bg-brass-bright"
-              >
-                Explore products
-                <span aria-hidden>→</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 border border-night/20 bg-white px-6 py-3 font-mono text-[11px] tracking-[0.24em] text-night uppercase transition-colors hover:border-brass hover:text-brass"
-              >
-                Discuss your application
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-black/10 pt-6 lg:mt-0 lg:max-w-xl lg:self-end lg:gap-10 lg:pt-8">
-            <div>
-              <p className="font-display text-3xl text-night lg:text-4xl">
-                <CountUp value={20000} />
-              </p>
-              <p className="mt-1 font-mono text-[10px] tracking-[0.2em] text-night/55 uppercase">
-                psi tested
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-3xl text-night lg:text-4xl">
-                <CountUp value={1379} />
-              </p>
-              <p className="mt-1 font-mono text-[10px] tracking-[0.2em] text-night/55 uppercase">
-                bar hydraulic
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-3xl text-night lg:text-4xl">ISO</p>
-              <p className="mt-1 font-mono text-[8px] tracking-[0.08em] text-night/55 uppercase whitespace-nowrap sm:text-[10px] sm:tracking-[0.2em]">
-                9001 · PED · ATEX
-              </p>
-            </div>
-          </div>
+    <section className="bg-white pt-[76px] lg:flex lg:h-svh lg:max-h-[1100px] lg:flex-col">
+      <div className="mx-auto flex max-w-3xl flex-col items-center px-5 pt-14 text-center md:px-10 md:pt-20 lg:pt-[4svh]">
+        <p className="label">Valve manufacturer · Dorset, England · Since 1971</p>
+        <h1 className="mt-5 font-display text-[clamp(2.5rem,min(5.2vw,7svh),4.5rem)] leading-[1.02] font-semibold text-ink">
+          Built for pressures <br className="hidden sm:block" />
+          up to <span className="text-brass-bright">20,000&nbsp;psi.</span>
+        </h1>
+        <p className="mt-6 max-w-xl text-lg lg:mt-[2.4svh] leading-relaxed text-night/70">
+          BiS designs, machines and tests small-bore stainless steel valves for
+          subsea, topside, downhole and industrial gas service.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3 lg:mt-[3.5svh]">
+          <Link href="/products" className="btn btn-primary">
+            Browse products
+            <Arrow />
+          </Link>
+          <Link href="/contact" className="btn btn-secondary">
+            Discuss an application
+          </Link>
         </div>
       </div>
 
-      <div className="relative lg:hidden">
-        <ValveVideo className="h-[280px] w-full object-cover object-right sm:h-[380px]" />
+      {/* Full-width band: white fading to pale brand green, valves centre stage. */}
+      <div className="mt-10 bg-gradient-to-b from-white via-[#f1f7f1] to-[#e3efe3] md:mt-12 lg:mt-[1svh] lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
+        <div className="mx-auto grid max-w-[1320px] items-center gap-10 px-5 pb-12 md:px-10 lg:min-h-0 lg:w-full lg:flex-1 lg:grid-cols-[1fr_auto_1fr] lg:grid-rows-[minmax(0,1fr)] lg:gap-16 lg:pb-[3svh]">
+          <div className="order-2 grid grid-cols-2 gap-8 lg:order-1 lg:grid-cols-1 lg:gap-12 lg:text-right">
+            <Figure {...figures[0]} />
+            <Figure {...figures[1]} />
+          </div>
+
+          {/* The video is shot on white: multiply drops the white into the band,
+              and the radial mask softens the frame's edges. */}
+          <div className="relative order-1 mx-auto aspect-square w-[280px] sm:w-[340px] lg:order-2 lg:h-full lg:max-h-[560px] lg:w-auto">
+            <video
+              className="h-full w-full object-cover mix-blend-multiply [mask-image:radial-gradient(closest-side,black_88%,transparent)]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/hero-valve-square-poster.jpg"
+              aria-hidden
+            >
+              <source src="/videos/hero-valve-square.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="order-3 grid grid-cols-2 gap-8 lg:grid-cols-1 lg:gap-12">
+            <Figure {...figures[2]} />
+            <Figure {...figures[3]} />
+          </div>
+        </div>
+        <div className="border-t border-[#d3e3d3]">
+          <p className="mx-auto max-w-[1320px] px-5 py-5 text-center text-[14px] lg:py-3.5 text-night/60 md:px-10">
+            ISO 9001 · ATEX · IECEx · PED · SIL 3 capable
+          </p>
+        </div>
       </div>
     </section>
   );

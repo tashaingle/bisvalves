@@ -28,16 +28,16 @@ export default async function CategoryPage({ params }: Props) {
     <>
       <PageHero kicker="Product range" title={cat.name} lede={cat.description} image={cat.image} />
       <section className="bg-charcoal py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-10">
+        <div className="mx-auto max-w-[1320px] px-5 md:px-10">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-            <p className="font-mono text-[11px] tracking-[0.24em] text-brass uppercase">
+            <p className="text-[13px] text-brass-bright font-medium">
               {items.length} models · {cat.pressure}
             </p>
             <Link
               href={`/contact?product=${cat.name}`}
-              className="font-mono text-[11px] tracking-[0.22em] text-night uppercase hover:text-brass"
+              className="text-[13px] text-night hover:text-brass-bright font-medium"
             >
-              Enquire on this range →
+              Enquire on this range
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: Props) {
               <Link
                 key={p.slug}
                 href={`/products/${p.category}/${p.slug}`}
-                className="group flex min-h-[300px] flex-col border border-black/10 bg-white p-7"
+                className="group flex min-h-[300px] flex-col border border-rule bg-white p-7"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -53,14 +53,13 @@ export default async function CategoryPage({ params }: Props) {
                   alt=""
                   className="mx-auto h-36 object-contain transition duration-500 group-hover:scale-105"
                 />
-                <p className="mt-4 font-mono text-[11px] tracking-[0.22em] text-brass uppercase">
+                <p className="mt-4 text-[13px] text-brass-bright font-medium">
                   {p.code}
                 </p>
-                <h2 className="mt-2 font-display text-2xl text-night uppercase">{p.name}</h2>
+                <h2 className="mt-2 font-display text-xl text-ink font-semibold">{p.name}</h2>
                 <p className="mt-2 text-sm text-night/70">{p.summary}</p>
-                <p className="mt-auto pt-5 font-mono text-[11px] tracking-[0.16em] text-night uppercase">
-                  {p.pressureLabel}{" "}
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                <p className="mt-auto pt-5 text-[13px] text-night font-medium">
+                  {p.pressureLabel}
                 </p>
               </Link>
             ))}
