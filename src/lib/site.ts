@@ -48,9 +48,9 @@ export const site = {
 
 export const nav = [
   { href: "/products", label: "Products" },
+  { href: "/technical-resources", label: "Datasheets" },
   { href: "/capabilities", label: "Capabilities" },
   { href: "/about", label: "About" },
-  { href: "/technical-resources", label: "Technical Resources" },
   { href: "/contact", label: "Contact" },
 ];
 

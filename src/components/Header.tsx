@@ -33,8 +33,8 @@ export function Header() {
         scrolled || open ? "shadow-[0_1px_0_var(--rule)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between gap-8 px-5 md:px-10">
-        <Logo size="sm" />
+      <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between gap-8 px-5 md:px-10 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+        <Logo size="sm" className="lg:justify-self-start" />
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map((item) => {
             const active =
@@ -55,7 +55,7 @@ export function Header() {
             );
           })}
         </nav>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 lg:justify-self-end">
           <a
             href={site.phoneHref}
             className="hidden text-[15px] text-night/65 tabular-nums hover:text-night xl:block"

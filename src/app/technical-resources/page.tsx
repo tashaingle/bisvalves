@@ -7,7 +7,7 @@ import { certificates, generalDocuments, rangeOverview } from "@/lib/resources";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Technical Resources",
+  title: "Datasheets",
   description:
     "Datasheets, range overviews, application notes and terms of sale from BiS Valves.",
 };
@@ -25,8 +25,8 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
-        kicker="Technical resources"
-        title="Technical resources"
+        kicker="Datasheets"
+        title="Datasheets and technical documents"
         lede="Datasheets for every catalogue model, range overviews, application notes and our terms of sale."
       />
 
